@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(255, 243, 241);
+}
+
+
+
+@media(min-width: 300px) and (max-width:700px) {
+    .imagenesCarrusel {
+        height: 300px;
+    }
+.card{
+    width: 8rem;
+    height: 15rem;
+    font-size: xx-small;
+    
+
+}
+.btn{
+    height: 20px;
+    width: 50px;
+    font-size: x-small;
+}
+}
+
+
+
+@media(min-width:700px) {
+
+    .imagenesCarrusel {
+        height: 600px;
+    }
+}

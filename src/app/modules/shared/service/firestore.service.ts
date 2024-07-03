@@ -41,19 +41,20 @@ export class FirestoreService {
          * Const resultado= coleccion de usuarios, envia como numero de documento el uid
          * y setea la informacion que ingresamos en el fomrulario de registro
          */
-        const resultado = await this.usuariosCollection.doc(id).set(usuario) 
+        const resultado = await this.usuariosCollection.doc(id).set(usuario)
 
         resolve(resultado)
 
-       
+
       }
-      catch(error){
+      catch (error) {
         reject(error)
       }
-}
+    }
 
 
-)
+
+    )
 
 
   }
