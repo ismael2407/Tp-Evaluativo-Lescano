@@ -7,6 +7,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FirestoreService } from 'src/app/modules/shared/service/firestore.service';
 import * as CryptoJS from "crypto-js"
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-registro',
@@ -54,7 +55,11 @@ export class RegistroComponent {
     const respuesta = await this.ServicioAuth.registrar(credenciales.email, credenciales.password)
       //el metodo THEN es una promesa que devuelve el mismo valor si todo sale ok
       .then(respuesta => {
-        alert("Se pudo registrar con exito")
+        Swal.fire({
+          title: "¡Buen trabajo!",
+          text: "¡Se pudo registrar con exito!",
+          icon: "success"
+        });
 
         //el metodo NAVIGATE nos redirecciona a otra vista
         this.ServicioRutas.navigate(['/inicio'])
@@ -64,8 +69,11 @@ export class RegistroComponent {
 
       //El metodo CATCH captura una falla u la vuelve un error
       .catch(error => {
-        alert("Hubo un problema al registrar un nuevo usuario:(\n" + error)
-      })
+        Swal.fire({
+          title: "¡Oh no!",
+          text: "Hubo un error al registrar un nuevo usuario \n"+error,
+          icon: "error"
+        });      })
 
 
     alert("¡Te registraste con exito!")

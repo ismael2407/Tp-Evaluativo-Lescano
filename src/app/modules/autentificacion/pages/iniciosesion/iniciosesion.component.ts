@@ -8,6 +8,8 @@ import { FirestoreService } from 'src/app/modules/shared/service/firestore.servi
 import { Router } from '@angular/router';
 import * as CryptoJS from "crypto-js"
 
+import Swal from 'sweetalert2'
+
 
 
 @Component({
@@ -44,11 +46,19 @@ export class IniciosesionComponent {
       password: this.usuarios.password
     }
     const res = await this.servicioAuth.InicioSesion(credenciales.email, credenciales.password).then(res => {
-      alert("¡Se pudo ingresar con exito!")
+      Swal.fire({
+        title: "Buen trabajo!",
+        text: "Se inicio sesion con exito!",
+        icon: "success"
+      });
       this.servicioRutas.navigate(['/inicio'])
     })
       .catch(err => {
-        alert("Hubo un problema al iniciar sesion" + err)
+        Swal.fire({
+          title: "Oh No!",
+          text: "Hubo un error al iniciar sesion \n"+err,
+          icon: "error"
+        });
       })
 
 
@@ -62,7 +72,7 @@ export class IniciosesionComponent {
   
         //Condicional verifica que enla base de datos el usuario existiera o que sea igual al de nuestra coleccion
         if (!usuarioBD || usuarioBD.empty) {
-          alert("Correo electronico no esta registrado")
+          Swal.fire("Correo electronico no registrado");
           this.limpiarInputs()
           return;
         }
@@ -85,16 +95,25 @@ export class IniciosesionComponent {
         //condicional que comparra la contraseña que acabamos de encriptar y que el usuario
         //envio con la que resivimos del "usuarioData"
         if (hashedPassword !== usuarioData.password) {
-          alert("mal ahi bro, te equivocaste de contra")
+          Swal.fire("Contraseña incorrecta!");
           this.usuarios.password=''
           return;
         }
         const res = await this.servicioAuth.InicioSesion(credenciales.email, credenciales.password).then(res => {
-          alert("¡Se pudo ingresar con exito!")
-          this.servicioRutas.navigate(['/inicio'])
+          Swal.fire({
+            title: "Bien Hecho!",
+            text: "¡Se ingreso correctamente!",
+            icon: "success"
+          });
+                    this.servicioRutas.navigate(['/inicio'])
         })
           .catch(err => {
-            alert("Hubo un problema al iniciar sesion" + err)
+            Swal.fire({
+              title: "Oh No!",
+              text: "Hubo un erro al iniciar sesión",
+              icon: "error"
+            });
+            
           })
       }catch{}{}
   
