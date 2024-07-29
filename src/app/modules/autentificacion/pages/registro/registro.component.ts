@@ -6,6 +6,7 @@ import { AuthService } from '../../services/auth.service';
 //importamos componentes de rutas de angular
 import { Router } from '@angular/router';
 import { FirestoreService } from 'src/app/modules/shared/service/firestore.service';
+import * as CryptoJS from "crypto-js"
 
 @Component({
   selector: 'app-registro',
