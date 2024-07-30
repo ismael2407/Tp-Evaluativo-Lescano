@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 //cloud firestore --> Accedemos a las colecciones
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore'
-import { catchError } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario';
 @Injectable({
   providedIn: 'root'

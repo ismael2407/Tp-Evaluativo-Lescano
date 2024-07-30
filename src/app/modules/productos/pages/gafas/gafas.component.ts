@@ -18,56 +18,62 @@ export class GafasComponent {
       {
         uid: "",
         nombre: "Gafas",
-        modelo: "Indian Mblk S10",
-        marca: "Rusty",
-        material: "Acetato",
-        imagen: "src/assets/img/productos/lentes-sol_1.jpg",
-        alt:"..."
+        modelo: "Alootikki 03",
+        marca: "360",
+        material: "Plastico",
+        imagen: "./assets/img/productos/gafas_1.jpg",
+        alt:"...",
+        precio:45.500
       },
       {
         uid: "",
         nombre: "Gafas",
-        modelo: "Malice Green Pearl S15",
+        modelo: "Clevel C4",
         marca: "Rusty",
         material: "Acetato",
-        imagen: "src/assets/img/productos/lentes-sol_2.jpg",
-        alt:"..."
+        imagen: "./assets/img/productos/gafas_2.jpg",
+        alt:"...",
+        precio:76.000
       },
       {
         uid: "",
         nombre: "Gafas",
-        modelo: "Plaiz Sblk G15",
+        modelo: "Plainz C1",
         marca: "Rusty",
         material: "Acetato",
-        imagen: "src/assets/img/productos/lentes-sol_3.jpg",
-        alt:"..."
+        imagen: "./assets/img/productos/gafas_3.jpg",
+        alt:"...",
+        precio:76.000
       },
       {
         uid: "",
         nombre: "Gafas",
-        modelo: "Bruk Sblk S10",
+        modelo: "Coron Sblk",
         marca: "Rusty",
         material: "Acetato",
-        imagen: "src/assets/img/productos/lentes-sol_4.jpg",
-        alt:"..."
+        imagen: "./assets/img/productos/gafas_4.jpg",
+        alt:"...",
+        precio:76.000
       },
       {
         uid: "",
         nombre: "Gafas",
-        modelo: "Crim Sblk S10",
+        modelo: "Gotte Mblk Blue",
         marca: "Rusty",
-        material: "Acetato",
-        imagen: "src/assets/img/productos/lentes-sol_5.jpg",
-        alt:"..."
+        material: "Metal",
+        imagen: "./assets/img/productos/gafas_5.jpg",
+        alt:"...",
+        precio:84.000
       },
       {
         uid: "",
         nombre: "Gafas  ",
-        modelo: "Latter Mblk Revo Red",
+        modelo: "Kirt MDB",
         marca: "Vulk",
-        material: "Acetato",
-        imagen:"src/assets/img/productos/lentes-sol_6.jpg",
-        alt:"..."
+        material: "Metal",
+        imagen:"./assets/img/productos/gafas_6.jpg",
+        alt:"...",
+        precio:76.000
       },
 
     ]

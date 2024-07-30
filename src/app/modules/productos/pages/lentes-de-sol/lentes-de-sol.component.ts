@@ -18,8 +18,9 @@ export class LentesDeSolComponent {
         modelo: "Indian Mblk S10",
         marca: "Rusty",
         material: "Acetato",
-        imagen: "src/assets/img/productos/lentes-sol_1.webp",
-        alt:"..."
+        imagen: "./assets/img/productos/lentes-sol_1.jpg",
+        alt:"...",
+        precio:96.000
       },
       {
         uid: "",
@@ -27,17 +28,19 @@ export class LentesDeSolComponent {
         modelo: "Malice Green Pearl S15",
         marca: "Rusty",
         material: "Acetato",
-        imagen: "src/assets/img/productos/lentes-sol_2.webp",
-        alt:"..."
+        imagen: "./assets/img/productos/lentes-sol_2.jpg",
+        alt:"...",
+        precio:72.000
       },
       {
         uid: "",
         nombre: "Lentes de sol",
-        modelo: "Plaiz Sblk G15",
+        modelo: "Plainz Sblk G15",
         marca: "Rusty",
         material: "Acetato",
-        imagen: "src/assets/img/productos/lentes-sol_3.webp",
-        alt:"..."
+        imagen: "./assets/img/productos/lentes-sol_3.jpg",
+        alt:"...",
+        precio:96.000
       },
       {
         uid: "",
@@ -45,17 +48,19 @@ export class LentesDeSolComponent {
         modelo: "Bruk Sblk S10",
         marca: "Rusty",
         material: "Acetato",
-        imagen: "src/assets/img/productos/lentes-sol_4.webp",
-        alt:"..."
+        imagen: "./assets/img/productos/lentes-sol_4.jpg",
+        alt:"...",
+        precio:96.000
       },
       {
         uid: "",
         nombre: "Lentes de sol",
-        modelo: "Crim Sblk S 10",
+        modelo: "Crim Sblk S10",
         marca: "Rusty",
         material: "Acetato",
-        imagen: "src/assets/img/productos/lentes-sol_5.webp",
-        alt:"..."
+        imagen: "./assets/img/productos/lentes-sol_5.jpg",
+        alt:"...",
+        precio:96.000
       },
       {
         uid: "",
@@ -63,8 +68,9 @@ export class LentesDeSolComponent {
         modelo: "Latter Mblk Revo Red",
         marca: "Vulk",
         material: "Acetato",
-        imagen:"src/assets/img/productos/lentes-sol_6.webp",
-        alt:"..."
+        imagen:"./assets/img/productos/lentes-sol_6.jpg",
+        alt:"...",
+        precio:96.000
       },
 
     ]

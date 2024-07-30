@@ -6,5 +6,6 @@ export interface Gafas {
     material:string,
     imagen:string,
     alt:string
+    precio:number
 
 }

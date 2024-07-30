@@ -1,6 +1,7 @@
-export interface LentesDeSol {
+export interface Producto {
 
-    uid: string | any;
+    
+    idProducto: string | any;
     nombre: string,
     modelo: string,
     marca: string,
@@ -8,5 +9,6 @@ export interface LentesDeSol {
     imagen:string,
     alt:string
     precio:number
-
+    descripcion:string,
+    categoria:string
 }
