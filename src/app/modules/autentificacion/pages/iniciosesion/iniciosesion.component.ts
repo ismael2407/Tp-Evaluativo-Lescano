@@ -56,7 +56,7 @@ export class IniciosesionComponent {
       .catch(err => {
         Swal.fire({
           title: "Oh No!",
-          text: "Hubo un error al iniciar sesion \n"+err,
+          text: "Hubo un error al iniciar sesion \n" + err,
           icon: "error"
         });
       })
@@ -66,59 +66,59 @@ export class IniciosesionComponent {
 
 
 
-      try {
-        //obtenemos usuario de la BD
-        const usuarioBD = await this.servicioAuth.obtenerUsuario(credenciales.email)
-  
-        //Condicional verifica que enla base de datos el usuario existiera o que sea igual al de nuestra coleccion
-        if (!usuarioBD || usuarioBD.empty) {
-          Swal.fire("Correo electronico no registrado");
-          this.limpiarInputs()
-          return;
-        }
-  
-  
-  
-        //vincula al primer documento de la coleccion "usuarios" que se obtenia desde la base de datos
-        const usuarioDoc = usuarioBD.docs[0]
-  
-  
-  //extrae los datos del documento en forma de objeto y se especifica que va a ser del tipo usuario
-  //Se refiere a la interfaz usuario de nuestros modelos
-        const usuarioData=usuarioDoc.data() as Usuario 
-  
-  
-  //Encriptar la contraseña que el usuario envia mediante "iniciar sesion"
-        const hashedPassword = CryptoJS.SHA256(credenciales.password).toString()
-  
-  
-        //condicional que comparra la contraseña que acabamos de encriptar y que el usuario
-        //envio con la que resivimos del "usuarioData"
-        if (hashedPassword !== usuarioData.password) {
-          Swal.fire("Contraseña incorrecta!");
-          this.usuarios.password=''
-          return;
-        }
-        const res = await this.servicioAuth.InicioSesion(credenciales.email, credenciales.password).then(res => {
+    try {
+      //obtenemos usuario de la BD
+      const usuarioBD = await this.servicioAuth.obtenerUsuario(credenciales.email)
+
+      //Condicional verifica que enla base de datos el usuario existiera o que sea igual al de nuestra coleccion
+      if (!usuarioBD || usuarioBD.empty) {
+        Swal.fire("Correo electronico no registrado");
+        this.limpiarInputs()
+        return;
+      }
+
+
+
+      //vincula al primer documento de la coleccion "usuarios" que se obtenia desde la base de datos
+      const usuarioDoc = usuarioBD.docs[0]
+
+
+      //extrae los datos del documento en forma de objeto y se especifica que va a ser del tipo usuario
+      //Se refiere a la interfaz usuario de nuestros modelos
+      const usuarioData = usuarioDoc.data() as Usuario
+
+
+      //Encriptar la contraseña que el usuario envia mediante "iniciar sesion"
+      const hashedPassword = CryptoJS.SHA256(credenciales.password).toString()
+
+
+      //condicional que comparra la contraseña que acabamos de encriptar y que el usuario
+      //envio con la que resivimos del "usuarioData"
+      if (hashedPassword !== usuarioData.password) {
+        Swal.fire("Contraseña incorrecta!");
+        this.usuarios.password = ''
+        return;
+      }
+      const res = await this.servicioAuth.InicioSesion(credenciales.email, credenciales.password).then(res => {
+        Swal.fire({
+          title: "Bien Hecho!",
+          text: "¡Se ingreso correctamente!",
+          icon: "success"
+        });
+        this.servicioRutas.navigate(['/inicio'])
+      })
+        .catch(err => {
           Swal.fire({
-            title: "Bien Hecho!",
-            text: "¡Se ingreso correctamente!",
-            icon: "success"
+            title: "Oh No!",
+            text: "Hubo un erro al iniciar sesión",
+            icon: "error"
           });
-                    this.servicioRutas.navigate(['/inicio'])
+
         })
-          .catch(err => {
-            Swal.fire({
-              title: "Oh No!",
-              text: "Hubo un erro al iniciar sesión",
-              icon: "error"
-            });
-            
-          })
-      }catch{}{}
-  
-  
-  
+    } catch { } { }
+
+
+
 
 
 

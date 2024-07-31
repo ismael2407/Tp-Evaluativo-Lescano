@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { CrudService } from '../../service/crud.service';
-import { FormControl,FormGroup,FormGroupName,Validators } from '@angular/forms';
+import { FormControl,FormGroup,Validators } from '@angular/forms';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
