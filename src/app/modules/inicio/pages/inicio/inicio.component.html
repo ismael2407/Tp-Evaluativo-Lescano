@@ -1,79 +1,111 @@
+<body>
 
-<div id="carouselExample" class="carousel slide">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="imagenesCarrusel" src="./assets/img/fondo.jpg" class="d-block w-100"  alt="...">
-      </div>
-      <div class="carousel-item">
-        <img class="imagenesCarrusel" src="./assets/img/fondo-2.webp" class="d-block w-100"    alt="...">
-      </div>
-      <div class="carousel-item">
-        <img class="imagenesCarrusel" src="./assets/img/fondo-3.webp" class="d-block w-100"    alt="...">
-      </div>
+
+    <img id="img1" src="./assets/img/imagenInicio.webp" alt="" style="height: 50%;">
+
+
+
+    <span class="example-spacer"></span>
+    <div class="container2" style="font-family: Cormorant Upright;">
+        <button mat-button>Ofertas</button>
+        <button mat-button routerLink="/gafas">Gafas de receta</button>
+        <button mat-button routerLink="/lentesdesol">Lentes de sol</button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
 
 
+    <div class="container text-center justify-content-center" style="margin-top: 20px;">
+        <div class="row g-2">
+            <div class="col-3">
+                <div class="p-3">
+                    <div class="card zoom">
+                        <img src="./assets/img/productos/1.webp" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the
+                                card
+                                title and make up
+                                the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="p-3">
+                    <div class="card zoom">
+                        <img src="./assets/img/productos/2.webp" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the
+                                card
+                                title and make up
+                                the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="p-3">
+                    <div class="card zoom">
+                        <img src="./assets/img/productos/4.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the
+                                card
+                                title and make up
+                                the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="p-3">
+                    <div class="card zoom">
+                        <img src="./assets/img/productos/1.webp" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the
+                                card
+                                title and make up
+                                the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+        </div>
+    </div>
 
-
-<div class="container text-center justify-content-center" style="margin-top: 20px;">
     <div class="row g-2">
-        <div class="col-4">
-            <div class="p-3">
-                <div class="card zoom" >
-                    <img src="./assets/img/productos/1.webp" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the
-                            card
-                            title and make up
-                            the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="p-3">
-                <div class="card zoom" >
-                    <img src="./assets/img/productos/2.webp" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the
-                            card
-                            title and make up
-                            the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="p-3">
-                <div class="card zoom" >
-                    <img src="./assets/img/productos/4.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the
-                            card
-                            title and make up
-                            the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="col-3" id="AcercaDe">
+            <div class="p-8 text-center">
+                <h1>¿Quienes somos?</h1>
+                <p>Bienvenidos a La Visión, donde tu estilo y comodidad visual son nuestra prioridad. Somos apasionados
+                    de ofrecerte las mejores gafas con diseños exclusivos y calidad excepcional. Cada par de gafas que
+                    encuentras en nuestra tienda ha sido cuidadosamente seleccionado para asegurarte una visión clara y
+                    un look que se adapte a tu personalidad.</p>
+                <p>
 
+                    En La Visión, creemos que ver bien no debe ser un lujo. Por eso, trabajamos incansablemente para
+                    ofrecer precios accesibles sin comprometer la calidad. Nuestro compromiso es brindarte una
+                    experiencia de compra sencilla, segura y satisfactoria.
+                </p>
+                <p>
+
+                    Gracias por confiar en nosotros para cuidar de tu vista y realzar tu estilo. ¡Descubre la diferencia
+                    con La Visión!
+                </p>
+            </div>
+        </div>
+        <div class="col-3" id="Ubicacion">
+            <div class="p-4 text-center">
+                <h1>¿Donde encontrarnos?</h1>
+            </div>
+        </div>
     </div>
-</div>
 
 
+</body>

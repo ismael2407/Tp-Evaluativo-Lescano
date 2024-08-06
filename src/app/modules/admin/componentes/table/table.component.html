@@ -46,4 +46,76 @@
             </td>
         </tr>
     </tbody>
+
+
 </table>
+
+<!-- Boton de agregar nuevos productos -->
+<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#agregarProducto">
+    Agregar un nuevo producto
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="agregarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <!--Titulo del modal-->
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Ingrese un nuevo producto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!--Cuerpo del modal-->
+        <div [formGroup]="producto" class="modal-body">
+            <div class="mb-3">
+                <label class="form-label">Ingrese el nombre del producto</label>
+                <input class="form-control" type="text" formControlName="nombre" placeholder="Ej.:Gafas">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Ingrese el precio del producto</label>
+                <input class="form-control" type="number" formControlName="Precio" placeholder="Ej.:65.000">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Ingrese la descripcion del producto</label>
+                <input class="form-control" type="text" formControlName="descripcion" placeholder="Ej.:...">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Seleccionar una categoria</label>
+                <select class="form-control" formControlName="categoria" class="place-holder">
+                    <option selected>Elija una opcion</option>
+                    <option value="gafas">Gafas de receta</option>
+                    <option value="lentesdesol">Lentes de sol</option>
+                    <option value="contacto">Lentes de contacto</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Ingrese el modelo del producto</label>
+                <input class="form-control" type="text" formControlName="modelo" placeholder="Ej.:SK10">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Ingrese el Marca del producto</label>
+                <input class="form-control" type="text" formControlName="marca" placeholder="Ej.:Tascani">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Ingrese el material del producto</label>
+                <input class="form-control" type="text" formControlName="material" placeholder="Ej.:Titanio">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Ingrese la imagen del producto</label>
+                <input class="form-control" type="image" formControlName="imagen" placeholder="Subir Imagen" >
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Ingrese el texto alternativo del producto</label>
+                <input class="form-control" type="text" formControlName="alt" placeholder="Ej.:...">
+            </div>
+        </div>
+
+        <!--Acciones del modal-->
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-outline-primary" (click)="agregarProducto()"  data-bs-dismiss="modal" >Guardar</button>
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+        </div>
+      </div>
+    </div>
+  </div>

@@ -10,23 +10,20 @@
     <button mat-button [matMenuTriggerFor]="producto">Productos</button>
 
   </mat-menu>
-
-  <img id="imagen1" src="./assets/img/LogoPagina.png" alt="" style="width: 7%;" routerLink="/inicio">
+  <img id="imagen1" src="./assets/img/LogoPagina.png" alt="" style="width: 7%; height: 110%;" routerLink="/inicio">
   <img id="imagen2" src="./assets/img/LogoPaginaTelefonos.png" alt="" style="width: 20%;" routerLink="/inicio">
   <button id="menuInicio" mat-button routerLink="/inicio">Inicio</button>
 
-  <button id="menuProducto" mat-button [matMenuTriggerFor]="producto">Productos</button>
+  <button id="menuProducto" mat-button [matMenuTriggerFor]="producto">Catalogo</button>
   <mat-menu #producto="matMenu">
     <button mat-menu-item routerLink="/gafas">Gafas</button>
     <button mat-menu-item routerLink="/lentesdesol">Lentes de sol</button>
   </mat-menu>
-<span class="example-spacer"></span>
-  <form class="d-flex" role="search">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success" type="submit">Search</button>
-  </form>
+  <button id="menuInicio" mat-button routerLink="#AcercaDe">Acerca de</button>
+  <button id="menuInicio" mat-button routerLink="/inicio">Contacto</button>
 
-  <span class="example-spacer"></span>
+
+ <span class="example-spacer"></span>
   <button mat-icon-button [matMenuTriggerFor]="usuario" id="boton"><mat-icon>person</mat-icon></button>
 
 

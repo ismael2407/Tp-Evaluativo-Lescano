@@ -2,7 +2,12 @@ body {
     background-color: rgb(255, 243, 241);
 }
 
-
+#AcercaDe{
+    background-color: #9db5bd;
+}
+#Ubicacion{
+    background-color: #1e5e6c;
+}
 
 @media(min-width: 300px) and (max-width:700px) {
     .imagenesCarrusel {
@@ -31,6 +36,20 @@ body {
     height: 570px;
 }
 
+.card{
+   max-width: 80%;
+}
+body {
+    background-color: #dceced;
+  
+}
+#img1{
+    width: 105.5rem;
+}
+}
+.container2{
+    display: flex;
+    justify-content: center;
 }
 
 .zoom {

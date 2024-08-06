@@ -5,6 +5,7 @@ import { InicioRoutingModule } from './inicio-routing.module';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { CardComponent } from './components/card/card.component';
 
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,11 @@ import { CardComponent } from './components/card/card.component';
   ],
   imports: [
     CommonModule,
-    InicioRoutingModule
+    InicioRoutingModule,
+    MatButtonModule
+  ],
+  exports:[
+    MatButtonModule
   ]
 })
 export class InicioModule { }

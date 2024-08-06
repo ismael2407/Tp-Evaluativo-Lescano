@@ -14,6 +14,6 @@ import { LentesDeSolComponent } from './pages/lentes-de-sol/lentes-de-sol.compon
   imports: [
     CommonModule,
     ProductosRoutingModule
-  ]
+  ],
 })
 export class ProductosModule { }
