@@ -11,6 +11,15 @@ import { provideImageKitLoader } from '@angular/common';
 export class TableComponent {
   //creamos coleccion local de productos -> la definimos como array
   coleccionProductos: Producto[] = []
+
+  productoSeleccionado!: Producto; // ! <- tomar valores vacios
+
+  modalVisibleProducto: boolean = false;
+
+
+
+
+
   //definimos foromularios para los productos
   /**
    *atributos alfanumericos (string) se inicializan con comillas simples 
@@ -34,10 +43,10 @@ export class TableComponent {
 
   }
   ngOnInit(): void {
-    this.servicioCrud.obtenerProducto().subscribe(producto=>{
-      this.coleccionProductos=producto
+    this.servicioCrud.obtenerProducto().subscribe(producto => {
+      this.coleccionProductos = producto
     })
-   }
+  }
   async agregarProducto() {
     if (this.producto.valid) {
       let nuevoProducto: Producto = {
@@ -61,4 +70,25 @@ export class TableComponent {
         })
     }
   }
+
+  
+
+  //funcion vinvulada al modal y al boton de la tabla
+  mostrarborrarProducto(productoSeleccionado: Producto) {
+    this.modalVisibleProducto = true
+
+    this.productoSeleccionado = productoSeleccionado
+  }
+
+
+  borrarProducto() {
+this.servicioCrud.eliminarProducto(this.productoSeleccionado.idProducto)
+.then(respuesta =>{
+  alert("Se ha podido eliminar con exito")
+})
+.catch(error=>{
+  alert("Ha ocurrido un error al eliminar el producto "+error)
+})
+  }
+
 }
