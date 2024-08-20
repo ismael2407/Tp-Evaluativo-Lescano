@@ -27,7 +27,7 @@ export class CrudService {
         //creamos numero identificativo poara el producto en la base de datos
         const idProducto = this.baseDatos.createId()
         //asignamos ID creado al atributo idProducto de la interfaz Producto
-        producto.idProducto
+        producto.idProducto = idProducto
 
 
         const resultado = await this.productosCollection.doc(idProducto).set(producto)
@@ -56,7 +56,7 @@ export class CrudService {
     //accedemos a la coleccion "productos" de la base de datos, buscamos el ID del
     //producto seleccionado y lo actualizamos con  el metodo "update" enviando la
     //nueva informacion
-    return this.baseDatos.collection('productos').doc(idProducto).update(nuevaData)
+    return this.baseDatos.collection('producto').doc(idProducto).update(nuevaData)
   }
 
   //ELIMINAR productos

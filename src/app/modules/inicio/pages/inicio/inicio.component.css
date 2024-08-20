@@ -1,14 +1,3 @@
-body {
-    background-color: rgb(255, 243, 241);
-}
-
-#AcercaDe{
-    background-color: #9db5bd;
-}
-#Ubicacion{
-    background-color: #1e5e6c;
-}
-
 @media(min-width: 300px) and (max-width:700px) {
     .imagenesCarrusel {
         height: 300px;
@@ -32,30 +21,44 @@ body {
 
 
 @media(min-width:700px) {
-.carousel-inner{
-    height: 570px;
+    .card {
+        max-width: 80%;
+
+    }
+
+    body {
+        background-color: #dceced;
+
+    }
+
+    #img1 {
+        width: 105.5rem;
+    }
+}
+.menuOfertas{
+    background-color: #dceced;
+
 }
 
-.card{
-   max-width: 80%;
-}
-body {
-    background-color: #dceced;
-  
-}
-#img1{
-    width: 105.5rem;
-}
-}
-.container2{
+.container2 {
     display: flex;
     justify-content: center;
 }
 
 .zoom {
     transition: transform 1s;
-  }
+}
 
-  .zoom:hover {
+.zoom:hover {
     transform: scale(1.1);
-  }
+}
+
+
+#AcercaDe {
+    background-color: #9db5bd;
+}
+
+#Ubicacion {
+    background-color: #1e5e6c;
+    width:32%;
+}

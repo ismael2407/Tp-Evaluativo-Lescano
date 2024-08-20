@@ -1,8 +1,8 @@
-body{
+.container{
     background-color: #133b44;
     height: 10%;
+    bottom: 0px;
+    display: block;
+    justify-content: center;
 }
-.example-spacer {
-    flex: 1 1 auto;
-  }
 
