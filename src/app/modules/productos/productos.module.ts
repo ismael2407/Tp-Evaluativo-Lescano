@@ -5,15 +5,31 @@ import { ProductosRoutingModule } from './productos-routing.module';
 import { GafasComponent } from './pages/gafas/gafas.component';
 import { LentesDeSolComponent } from './pages/lentes-de-sol/lentes-de-sol.component';
 
+import { CardComponent } from './component/card/card.component';
+import { CardGafasComponent } from './component/card-gafas/card-gafas.component';
+import { ProductoComponent } from './pages/producto/producto.component';
+
 
 @NgModule({
   declarations: [
     GafasComponent,
-    LentesDeSolComponent
+    LentesDeSolComponent,
+    CardComponent,
+    CardGafasComponent,
+    ProductoComponent
   ],
   imports: [
     CommonModule,
-    ProductosRoutingModule
+    ProductosRoutingModule,
+
   ],
+  exports:[
+  
+    CardComponent,
+    CardGafasComponent,
+    GafasComponent,
+    LentesDeSolComponent,
+    ProductoComponent
+  ]
 })
 export class ProductosModule { }
