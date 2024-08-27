@@ -98,7 +98,7 @@ export class TableComponent {
 
   //EDITAR PRODUCTOS
   mostrarEditar(productoSeleccionado: Producto) {
-this.productoSeleccionado=productoSeleccionado
+    this.productoSeleccionado = productoSeleccionado
     /**
      * Toma los valores del producto seleccionado y los va a 
      * autocompletar en el formulario del modal (menos el ID)
@@ -121,8 +121,8 @@ this.productoSeleccionado=productoSeleccionado
   //VINCULA AL BOTON "editarProducto" del modal de editar
   editarProducto() {
     //Solo idProducto no se modifica por el usuario
-      let datos: Producto = {
-      idProducto:this.productoSeleccionado.idProducto,
+    let datos: Producto = {
+      idProducto: this.productoSeleccionado.idProducto,
       //Los demas atributos reciben nueva informacion desde el formulario
       nombre: this.producto.value.nombre!,
       precio: this.producto.value.precio!,
@@ -135,15 +135,15 @@ this.productoSeleccionado=productoSeleccionado
       alt: this.producto.value.alt!
     }
     //Enviamos el metodo del id del producto seleccionado y los datos actualizados
-    this.servicioCrud.modificarProducto(this.productoSeleccionado.idProducto,datos)
-    .then(producto =>{
-      alert ("El producto se a modificado con exito")
-      this.producto.reset()
-    })
-    .catch(error=>{
-      alert("Hubo un error al modificar el producto:\n"+error)
-      this.producto.reset()
-    })
+    this.servicioCrud.modificarProducto(this.productoSeleccionado.idProducto, datos)
+      .then(producto => {
+        alert("El producto se a modificado con exito")
+        this.producto.reset()
+      })
+      .catch(error => {
+        alert("Hubo un error al modificar el producto:\n" + error)
+        this.producto.reset()
+      })
 
   }
 
