@@ -46,11 +46,7 @@ export class IniciosesionComponent {
       password: this.usuarios.password
     }
     const res = await this.servicioAuth.InicioSesion(credenciales.email, credenciales.password).then(res => {
-      Swal.fire({
-        title: "Buen trabajo!",
-        text: "Se inicio sesion con exito!",
-        icon: "success"
-      });
+
       this.servicioRutas.navigate(['/inicio'])
     })
       .catch(err => {
@@ -72,7 +68,10 @@ export class IniciosesionComponent {
 
       //Condicional verifica que enla base de datos el usuario existiera o que sea igual al de nuestra coleccion
       if (!usuarioBD || usuarioBD.empty) {
-        Swal.fire("Correo electronico no registrado");
+        Swal.fire({
+          text:"Correo electronico no registrado",
+          icon:"error"
+        });
         this.limpiarInputs()
         return;
       }
@@ -95,7 +94,12 @@ export class IniciosesionComponent {
       //condicional que comparra la contraseña que acabamos de encriptar y que el usuario
       //envio con la que resivimos del "usuarioData"
       if (hashedPassword !== usuarioData.password) {
-        Swal.fire("Contraseña incorrecta!");
+        Swal.fire({
+
+          text: "Contraseña incorrecta!",
+          icon: "error"
+        });
+
         this.usuarios.password = ''
         return;
       }
@@ -113,9 +117,9 @@ export class IniciosesionComponent {
             text: "Hubo un erro al iniciar sesión",
             icon: "error"
           });
-
+          this.limpiarInputs()
         })
-    } catch { } { }
+    } catch (error) { this.limpiarInputs() }
 
 
 
@@ -126,11 +130,9 @@ export class IniciosesionComponent {
   }
   limpiarInputs() {
     const inputs = {
-      uid: this.usuarios.uid = '',
-      nombre: this.usuarios.nombre = '',
-      apellido: this.usuarios.apellido = '',
+
       email: this.usuarios.email = '',
-      rol: this.usuarios.rol = '',
+
       password: this.usuarios.password = ''
     }
   }

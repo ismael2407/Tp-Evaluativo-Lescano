@@ -24,14 +24,14 @@
 
 
  <span class="example-spacer"></span>
+
+
+
   <button mat-icon-button [matMenuTriggerFor]="usuario" id="boton"><mat-icon>person</mat-icon></button>
-
-
-
   <mat-menu #usuario="matMenu">
     <button mat-menu-item (click)="inicio()" *ngIf="logueado" routerLink="/registro">Registrarse</button>
     <button mat-menu-item (click)="inicio()"*ngIf="logueado" routerLink="/inicio-sesion">Iniciar Sesion</button>
-    <button mat-menu-item(click)="inicio()" *ngIf="deslogueado">Cerrar Sesión</button>
+    <button mat-menu-item (click)="cerrarSesion()" *ngIf="deslogueado">Cerrar Sesión</button>
   </mat-menu>
 
   <button mat-icon-button class="example-icon shopping_cart-icon" aria-label="Example icon-button with heart icon">

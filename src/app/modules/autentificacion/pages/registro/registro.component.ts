@@ -71,18 +71,21 @@ export class RegistroComponent {
       .catch(error => {
         Swal.fire({
           title: "¡Oh no!",
-          text: "Hubo un error al registrar un nuevo usuario \n"+error,
+          text: "Hubo un error al registrar un nuevo usuario \n" + error,
           icon: "error"
-        });      })
+        });
+      })
 
 
-    alert("¡Te registraste con exito!")
 
     //Constante UID captura el identificador de la BD
     const uid = await this.ServicioAuth.ObtenerUid()
     //Se le asigna al atributo de ña interfaz esta constante
     this.usuarios.uid = uid
     //Llamamos a la funcion guardarUsuario()
+
+    this.usuarios.password = CryptoJS.SHA256(this.usuarios.password).toString()
+
     this.guardarUsuario()
     //Llamamos a la funcion limpiarInputs()
     this.limpiarInputs()
@@ -97,7 +100,7 @@ export class RegistroComponent {
       .catch(err => {
         console.log("Error=>", err)
       })
-      
+
   }
   limpiarInputs() {
     const inputs = {

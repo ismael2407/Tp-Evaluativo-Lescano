@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
 
-logueado=true
-deslogueado=false
+logueado=true;
+deslogueado=false;
 
 constructor(
   public servicioAuth:AuthService,
@@ -24,9 +24,10 @@ inicio(){
 
 cerrarSesion(){
   this.deslogueado = false
-  this.logueado = true
-  this.servicioAuth.CerrarSesion
+
+  this.servicioAuth.CerrarSesion()
   this.servicioRutas.navigate(['/'])
+  this.logueado = true
 }
 
 
