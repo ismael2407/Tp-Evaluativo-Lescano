@@ -1,19 +1,18 @@
 import { Component } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { CrudService } from 'src/app/modules/admin/service/crud.service';
-
 @Component({
-  selector: 'app-inicio',
-  templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.css']
+  selector: 'app-card-lentes-sol',
+  templateUrl: './card-lentes-sol.component.html',
+  styleUrls: ['./card-lentes-sol.component.css']
 })
-export class InicioComponent {
+export class CardLentesSolComponent {
 
 
 //coleccion de todos los productos de forma local
 coleccionProductos: Producto[] = []
 //coleccion de productos de una sola categoria
-coleccionOfertas: Producto[] = []
+coleccionLentesSol: Producto[] = []
 
 //variable para seleccionar productos especificos
 productoSeleccionado!: Producto
@@ -33,16 +32,16 @@ ngOnInit(): void {
     this.coleccionProductos = producto
 
     //mostrara la coleccion de esa categoria hasta el momentos
-    this.mostrarProductoOfertas()
+    this.mostrarProductoLentesSol()
   })
 
 
 }
 
-mostrarProductoOfertas(){
+mostrarProductoLentesSol(){
   this.coleccionProductos.forEach(producto => {
-    if (producto.categoria === "ofertas") {
-      this.coleccionOfertas.push(producto)
+    if (producto.categoria === "lentesdesol") {
+      this.coleccionLentesSol.push(producto)
 
 
 
@@ -56,6 +55,4 @@ mostrarVer(info:Producto){
   this.productoSeleccionado=info
 }
 
-
-  
 }

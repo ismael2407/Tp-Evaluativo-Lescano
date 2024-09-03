@@ -16,16 +16,16 @@
 
         <!--Cards1-->
         <div class="container text-center justify-content-center" style="margin-top: 100px;">
-            <div class="row g-2">
+            <div class="row g-2" *ngFor="let producto of coleccionOfertas">
                 <div class="col-3">
                     <div class="p-3">
                         <div class="card zoom">
-                            <img src="./assets/img/productos/lentes-sol-oferta_1.webp" class="card-img-top" alt="...">
+                            <img src="{{producto.imagen}}" class="card-img-top" alt="{{producto.alt}}">
                             <div class="card-body">
-                                <h5 class="card-title">Lentes de sol Rusty Pears MBLK R.Blue</h5>
+                                <h5 class="card-title">{{producto.nombre}} {{producto.modelo}}</h5>
                                 
                                 <p class="card-text">
-                                    $73.100
+                                {{producto.precio}}
                                 </p>
                                 <a href="#" class="btn btn-primary">Ver más</a>
                             </div>

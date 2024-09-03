@@ -8,6 +8,7 @@ import { LentesDeSolComponent } from './pages/lentes-de-sol/lentes-de-sol.compon
 import { CardComponent } from './component/card/card.component';
 import { CardGafasComponent } from './component/card-gafas/card-gafas.component';
 import { ProductoComponent } from './pages/producto/producto.component';
+import { CardLentesSolComponent } from './component/card-lentes-sol/card-lentes-sol.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ProductoComponent } from './pages/producto/producto.component';
     LentesDeSolComponent,
     CardComponent,
     CardGafasComponent,
-    ProductoComponent
+    ProductoComponent,
+    CardLentesSolComponent
   ],
   imports: [
     CommonModule,

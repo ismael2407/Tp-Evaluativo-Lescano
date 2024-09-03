@@ -19,8 +19,8 @@
     <tbody>
         <tr *ngFor="let prod of coleccionProductos">
             <th scope="row">1</th>
-            <td>
-                <img src="{{prod.imagen}}" alt="{{prod.alt}}">
+            <td >
+                <img src="{{prod.imagen}}" alt="{{prod.alt}}" style="max-width: 200px;max-height: 200px;">
             </td>
             <td>{{prod.nombre}}</td>
             <td>{{prod.precio}}</td>
@@ -87,6 +87,7 @@
                         <option value="gafas">Gafas de receta</option>
                         <option value="lentesdesol">Lentes de sol</option>
                         <option value="contacto">Lentes de contacto</option>
+                        <option value="contacto">Ofertas</option>
                     </select>
                 </div>
                 <div class="mb-3">
