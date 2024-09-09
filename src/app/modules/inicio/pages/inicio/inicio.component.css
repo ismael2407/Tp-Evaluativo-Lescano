@@ -32,34 +32,57 @@
     }
 
     #img1 {
-        width: 105.5rem;
+
+        height: 80%;
+        width: 100%;
     }
-}
-.menuOfertas{
-    background-color: #dceced;
-    height:100% ;
 
-}
+    .menuOfertas {
+        background-color: #dceced;
+        height: 100%;
+        margin-top: 100px;
+        height: fit-content;
 
-.container2 {
-    display: flex;
-    justify-content: center;
-}
+    }
 
-.zoom {
-    transition: transform 1s;
-}
+    .container2 {
+        display: flex;
+        justify-content: center;
+    }
 
-.zoom:hover {
-    transform: scale(1.1);
-}
+    .zoom {
+        transition: transform 1s;
+    }
+
+    .zoom:hover {
+        transform: scale(1.1);
+    }
 
 
-#AcercaDe {
-    background-color: #9db5bd;
-}
+    #AcercaDe {
+        background-color: #9db5bd;
+    }
 
-#Ubicacion {
-    background-color: #1e5e6c;
-    width:32%;
+    #Ubicacion {
+        background-color: #1e5e6c;
+        width: fit-content;
+        justify-content: center;
+    }
+
+
+    #contenedorCardsOfertas {
+        margin-top: 100px;
+    }
+
+    #imagenCardOfertas {
+        max-width: fit-content;
+        max-height: fit-content;
+    }
+
+
+    video {
+        border: 5px solid black;
+        height: fit-content;
+    }
+
 }

@@ -5,6 +5,7 @@
 /*estilos para modo socuro*/
 body{
     transition: all 1.5s ease;
+
 }
 
 #toggle{
@@ -24,5 +25,4 @@ body{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
 
