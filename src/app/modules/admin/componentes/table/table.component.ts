@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { CrudService } from '../../service/crud.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -15,7 +16,8 @@ export class TableComponent {
 
   modalVisibleProducto: boolean = false;
 
-
+  nombreImagen!: string //Obtendra el nombre de la imagen
+  imagen!: string //Obtendra la ruta de la imagen 
 
 
 
@@ -33,7 +35,7 @@ export class TableComponent {
     modelo: new FormControl('', Validators.required),
     marca: new FormControl('', Validators.required),
     material: new FormControl('', Validators.required),
-    imagen: new FormControl('', Validators.required),
+    // imagen: new FormControl('', Validators.required),
     alt: new FormControl('', Validators.required),
 
 
@@ -57,25 +59,84 @@ export class TableComponent {
         modelo: this.producto.value.modelo!,
         marca: this.producto.value.marca!,
         material: this.producto.value.material!,
-        imagen: this.producto.value.imagen!,
+        imagen: '',
         alt: this.producto.value.alt!
       }
-      await this.servicioCrud.crearProducto(nuevoProducto)
-        .then(producto => {
-          alert("Ha ingresado un nuevo producto con exito")
 
-          //resetea el formulario y las casillas quedan vacias
-          this.producto.reset()
-        })
-        .catch(error => {
-          alert("Ha ocurrido un error al agregar un nuevo producto")
+      //enviamos nombre y url de la imagen, definimos carpeta de las imagenes como "producto"
+      await this.servicioCrud.subirImagenes(this.nombreImagen, this.imagen, "productos")
+        .then(resp => {
 
-          this.producto.reset()
+          //encapsulamos la respuesta y enviamos la informacion obtenida
+          this.servicioCrud.obtenerUrlImagen(resp)
+            .then(url => {
+
+              //Ahora metodo crearProducto recibe datos del formnulario y URL creada
+              this.servicioCrud.crearProducto(nuevoProducto, url)
+                .then(producto => {
+
+                  Swal.fire({
+                    title: "¡Bien Hecho!",
+                    text: "¡Ha ingresado un nuevo producto con exito!",
+                    icon: "success"
+                  })
+
+
+                  //resetea el formulario y las casillas quedan vacias
+                  this.producto.reset()
+                })
+                .catch(error => {
+
+                  Swal.fire({
+                    title: "Oh no",
+                    text: "Ha ocurrido un error al agregar un nuevo producto:\n" + error,
+                    icon: "error"
+                  })
+
+
+                  this.producto.reset()
+                })
+            })
         })
+
+
+
     }
   }
 
+  //CARGAR IMAGENES
 
+  cargarImagen(event: any) {
+
+    //Variable para obtener el archivo subido desde el input del HTML
+    let archivo = event.target.files[0]
+
+    //variable para crear un nuevo objeto de tipo "archivo" o "file" y leerlo
+    let reader = new FileReader()
+
+    if (archivo != undefined) {
+      /*Llamamos a metodo readAsDataURl para leer toda la informacion recibida
+      Enviamos como parametro al "archivo" oiruqe sera el encargado de tener la
+      info ingresada por el usuario
+      */
+      reader.readAsDataURL(archivo)
+
+      //Definimos que haremos con la informacion mediante funcion flecha
+      reader.onloadend = () => {
+
+        let url = reader.result
+
+
+
+        if (url != null) {
+          //Definimos nombre de la imagen con atributo "name" del input
+          this.nombreImagen = archivo.name
+          //Definimos ruta de la imagen segun url recibida
+          this.imagen = url.toString()
+        }
+      }
+    }
+  }
 
   //funcion vinvulada al modal y al boton de la tabla
   mostrarborrarProducto(productoSeleccionado: Producto) {
@@ -88,10 +149,24 @@ export class TableComponent {
   borrarProducto() {
     this.servicioCrud.eliminarProducto(this.productoSeleccionado.idProducto)
       .then(respuesta => {
-        alert("Se ha podido eliminar con exito")
+
+        Swal.fire({
+          title: "¡Buen trabajo!",
+          text: "¡Se ha podido eliminar el producto  con exito!",
+          icon: "success"
+        })
+
+
       })
       .catch(error => {
-        alert("Ha ocurrido un error al eliminar el producto " + error)
+        Swal.fire({
+          title: "¡Oh no!",
+          text: "¡Ha ocurrido un error al eliminar el producto:\n!" + error,
+          icon: "success"
+        })
+
+
+
       })
   }
 
@@ -137,11 +212,27 @@ export class TableComponent {
     //Enviamos el metodo del id del producto seleccionado y los datos actualizados
     this.servicioCrud.modificarProducto(this.productoSeleccionado.idProducto, datos)
       .then(producto => {
-        alert("El producto se a modificado con exito")
+
+        Swal.fire({
+          title: "¡Buen trabajo!",
+          text: "¡El producto se a modificado con exito!",
+          icon: "success"
+        })
+
+
         this.producto.reset()
       })
       .catch(error => {
-        alert("Hubo un error al modificar el producto:\n" + error)
+
+
+
+        Swal.fire({
+          title: "¡Oh no!",
+          text: "¡Hubo un error al modificar el producto:\n" + error,
+          icon: "success"
+        })
+
+
         this.producto.reset()
       })
 

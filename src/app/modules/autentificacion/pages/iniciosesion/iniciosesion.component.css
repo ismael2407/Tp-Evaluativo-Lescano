@@ -1,15 +1,35 @@
-.container{
-    display: flex;
-    padding: 10px;
-    text-align: center;
-    justify-content: center;
+@media(min-width: 300px) and (max-width:700px) {
+
+body{
+    background-color: #dceced;
+}
+
+.row{
+   text-align: center;
+   justify-content: center;
 }
 
 .boton{
     width: 120px;
-    margin: auto;
+}
 }
 
-body{
-    background-color: rgb(255, 243, 241);
+
+@media(min-width:700px) {
+
+    .container {
+        display: flex;
+        padding: 10px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .boton {
+        width: 120px;
+        margin: auto;
+    }
+
+    body {
+        background-color: #dceced;
+    }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Usuario } from 'src/app/models/usuario';
+import { Usuario } from 'src/app/models/usuario'; 
 
 //importamos servicio de autentificacion
 import { AuthService } from '../../services/auth.service';

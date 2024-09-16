@@ -1,21 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
 @media(min-width: 300px) and (max-width:700px) {
-    .imagenesCarrusel {
-        height: 300px;
+
+    #img1 {
+
+        height: 40%;
+        width: 100%;
     }
 
-    .card {
+    #card {
         width: 8rem;
         height: 15rem;
         font-size: xx-small;
 
 
+
     }
 
-    .btn {
-        height: 20px;
-        width: 50px;
-        font-size: x-small;
+    #contenedor {
+        margin-right: 90px;
     }
+
+    #hrSuperior{
+        margin-top: 0;
+    }
+    .menuOfertas {
+        text-align: center;
+        background-color: #dceced;
+    }
+
+    .zoom {
+        transition: transform 1s;
+    }
+
+
+    .zoom:hover {
+        transform: scale(1.1);
+    }
+
+
+    #AcercaDe {
+        background-color: #9db5bd;
+        width: fit-content;
+    }
+
+    #Ubicacion {
+        background-color: #1e5e6c;
+        width: fit-content;
+        justify-content: center;
+    }
+
+
+
+
+    video {
+        border: 5px solid black;
+        height: fit-content;
+        width: 360px;
+        height: 200px
+    }
+
+    iframe {
+        width: 360px;
+        height: 200px
+    }
+
 }
 
 
@@ -61,6 +111,7 @@
 
     #AcercaDe {
         background-color: #9db5bd;
+
     }
 
     #Ubicacion {
@@ -83,6 +134,18 @@
     video {
         border: 5px solid black;
         height: fit-content;
+        width: 730px;
+    
     }
 
+
+    h1 {
+        font-family: "Cormorant Infant", serif;
+        font-size: xx-large;
+    }
+
+    iframe {
+        width: 680px;
+        height: 410px
+    }
 }

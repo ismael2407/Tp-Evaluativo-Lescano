@@ -4,22 +4,21 @@
 
     <!--CONTENEDOR  1-->
     <div class="menuOfertas">
-        <hr>
+
+        <hr id="hrSuperior">
         <!--Menú de productos-->
         <span class="example-spacer"></span>
-        <div class="container2" style="font-family: Cormorant Upright;">
-            <button mat-button>Ofertas</button>
-            <button mat-button routerLink="/gafas">Gafas de receta</button>
-            <button mat-button routerLink="/lentesdesol">Lentes de sol</button>
+        <div class="container2" style="font-family: Cormorant Infant,serif; text-decoration: underline;">
+            <h1>¡OFERTAS!</h1>
         </div>
-        <hr>
+    
 
         <!--Cards-->
         <div class="container text-center justify-content-center" id="contenedorCardsOfertas">
             <div class="row g-2" >
-                <div class="col-3" *ngFor="let producto of coleccionOfertas">
+                <div class="col-3" *ngFor="let producto of coleccionOfertas" id="contenedor">
                     <div class="p-3">
-                        <div class="card zoom">
+                        <div class="card zoom" id="card">
                             <img src="{{producto.imagen}}" id="imagenCardsOfertas" class="card-img-top" alt="{{producto.alt}}">
                             <div class="card-body">
                                 <h5 class="card-title">{{producto.nombre}} {{producto.modelo}}</h5>
@@ -39,23 +38,27 @@
     <div class="info" >
         <div class="row gx-5">
             <div class="col-6" id="AcercaDe">
-                <div class="p-3" style="font-size: x-large;justify-content: center;">
+                <div class="p-3" style="font-size: x-large;justify-content: center; text-align: center;">
 
                     <!--Sobre nosotros-->
-               
-                    <video width="730" height="500" autoplay loop >  
-                        <source  src=".\assets\vid\SobreNosotros.webm" type="video/webm">  
+                    <hr>
+                    <h1>¿Quienes somos?</h1>
+                    <hr>
+                    <video autoplay loop >  
+                        <source src=".\assets\vid\SobreNosotros.webm" type="video/webm">  
                     </video> 
                 </div>
             </div>
 
             <!--UBICACIÓN google-->
             <div class="col-6" id="Ubicacion" >
-                <div class="p-3">
+                <div class="p-3" style="text-align: center;">
+                    <hr>
                     <h1>¿Donde encontrarnos?</h1>
+                    <hr>
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3103.7403774528307!2d-67.98569765421443!3d-38.929911182667105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x960a30ef2ee4b6b3%3A0xf60599626c221a60!2sCentro%20Educativo%20Tecnica%20N%C2%BA%2030!5e0!3m2!1ses!2sar!4v1723549178478!5m2!1ses!2sar"
-                        width="680" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+                         style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>

@@ -5,7 +5,7 @@
 
 @media(min-width: 300px) and (max-width:700px) {
   mat-toolbar {
-    background-color: #83A2FF;
+    background-color: #067c8b;
   }
 
   #menuInicio {
