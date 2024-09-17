@@ -35,7 +35,7 @@ export class TableComponent {
     modelo: new FormControl('', Validators.required),
     marca: new FormControl('', Validators.required),
     material: new FormControl('', Validators.required),
-    // imagen: new FormControl('', Validators.required),
+    //imagen: new FormControl('', Validators.required),
     alt: new FormControl('', Validators.required),
 
 
@@ -147,7 +147,14 @@ export class TableComponent {
 
 
   borrarProducto() {
-    this.servicioCrud.eliminarProducto(this.productoSeleccionado.idProducto)
+
+    /*
+     ahora debemos enviar tanto el ID del producto (para identificarlo en firestore)
+     y la URL de su imagen (para identificarlo en Storage)
+     ID y URL <- identificadores propios de cada archivo en la Base de Datos
+     */
+
+    this.servicioCrud.eliminarProducto(this.productoSeleccionado.idProducto, this.productoSeleccionado.imagen)
       .then(respuesta => {
 
         Swal.fire({
@@ -176,7 +183,8 @@ export class TableComponent {
     this.productoSeleccionado = productoSeleccionado
     /**
      * Toma los valores del producto seleccionado y los va a 
-     * autocompletar en el formulario del modal (menos el ID)
+     * autocompletar en el formulario del modal 
+     * (menos el ID y la URL de la imagen)
      * 
      */
     this.producto.setValue({
@@ -187,7 +195,7 @@ export class TableComponent {
       modelo: productoSeleccionado.modelo,
       marca: productoSeleccionado.marca,
       material: productoSeleccionado.material,
-      imagen: productoSeleccionado.imagen,
+      //imagen: productoSeleccionado.imagen,
       alt: productoSeleccionado.alt
 
     })
@@ -206,9 +214,47 @@ export class TableComponent {
       modelo: this.producto.value.modelo!,
       marca: this.producto.value.marca!,
       material: this.producto.value.material!,
-      imagen: this.producto.value.imagen!,
+      imagen: this.productoSeleccionado.imagen,
       alt: this.producto.value.alt!
     }
+
+    //Verificamos si el usuario ingresa o no una nueva imagen
+    if (this.imagen) {
+      this.servicioCrud.subirImagenes(this.nombreImagen, this.imagen, "productos")
+        .then(resp => {
+          this.servicioCrud.obtenerUrlImagen(resp)
+            .then(url => {
+              datos.imagen = url //Actualizamos URL de la imagen en los datos del formulario
+
+              this.actualizarProducto(datos) //Actualizamos los datos
+
+              this.producto.reset() //Vaciar las casillas del formulario
+            })
+            .catch(error => {
+              alert("Hubo un error al subir la imagen: \n" + error)
+              this.producto.reset()
+            })
+        })
+    } else {
+      /**
+       * Actualizamos el formulario con los datos recibidos del usuario, pero sin modificar la imagen ya existente en Firestore y Stor
+       */
+      this.actualizarProducto(datos)
+    }
+
+
+
+
+
+
+
+
+  }
+
+
+
+  //ACTUALIZAR la informacion ya existente de los productos
+  actualizarProducto(datos: Producto) {
     //Enviamos el metodo del id del producto seleccionado y los datos actualizados
     this.servicioCrud.modificarProducto(this.productoSeleccionado.idProducto, datos)
       .then(producto => {
@@ -235,7 +281,5 @@ export class TableComponent {
 
         this.producto.reset()
       })
-
   }
-
 }

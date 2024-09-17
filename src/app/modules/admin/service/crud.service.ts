@@ -4,13 +4,13 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { map } from 'rxjs';
 //Importaciones para manejo de archivos y referencias
-import { getDownloadURL, getStorage, ref, UploadResult, uploadString, deleteObject } from 'firebase/Storage'
+import { getDownloadURL, getStorage, ref, UploadResult, uploadString, deleteObject } from 'firebase/storage'
 /**
  * getDownloadURL -> Para obtener la URL de descarga de una imagen subida
  * 
  * getStorage -> Para obtener la instancia de almacenamiento
  * 
- * reg -> Para crear referencias a ubicaciones en el almacenamiento
+ * ref -> Para crear referencias a ubicaciones en el almacenamiento
  * 
  * UploadResult -> Tipo que representa el resultado de una operacion subida
  * 

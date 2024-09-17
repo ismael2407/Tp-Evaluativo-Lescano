@@ -57,7 +57,7 @@
     Agregar un nuevo producto
 </button>
 
-<!-- Modal -->
+<!-- MODAL PARA AGREGAR NUEVO PRODUCTO -->
 <div class="modal fade" id="agregarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -104,7 +104,19 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Ingrese la imagen del producto</label>
-                    <input class="form-control" type="text" formControlName="imagen" placeholder="Subir Imagen">
+                    <!--<input class="form-control" type="text" formControlName="imagen" placeholder="Subir Imagen">-->
+
+
+                    <!--
+                    type="archivo"
+
+                    accept="imagen/*"<- acepte todo tipo de extensiones (jpg, jpeg, png, gif)
+
+                    (change)="cargarImagen($event)" <- ejecuta el evento de cargarImagen que
+                    definimos en el table.ts
+                    
+                    -->
+                    <input type="file" accept="imagen/*" (change)="cargarImagen($event)">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Ingrese el texto alternativo del producto</label>
@@ -175,7 +187,18 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Ingrese la imagen del producto</label>
-                    <input class="form-control" type="text" formControlName="imagen" placeholder="{{productoEdit.imagen}}">
+
+                         <!--
+                    type="archivo"
+
+                    accept="imagen/*"<- acepte todo tipo de extensiones (jpg, jpeg, png, gif)
+
+                    (change)="cargarImagen($event)" <- ejecuta el evento de cargarImagen que
+                    definimos en el table.ts
+                    
+                    -->
+
+                    <input type="file" accept="imagen/*" (change)="cargarImagen($event)">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Ingrese el texto alternativo del producto</label>
