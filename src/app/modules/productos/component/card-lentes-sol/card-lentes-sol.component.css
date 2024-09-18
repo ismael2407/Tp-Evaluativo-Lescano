@@ -1,3 +1,13 @@
-body{
+body {
     background-color: #dceced;
+
+}
+
+
+.zoom {
+    transition: transform 1s;
+}
+
+.zoom:hover {
+    transform: scale(1.1);
 }

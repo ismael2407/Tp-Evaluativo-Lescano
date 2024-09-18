@@ -1,8 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
-
+body{
+    background-color: #dceced;
+}
 
 /*estilos para modo socuro*/
+/**
 body{
     transition: all 1.5s ease;
 
@@ -25,4 +28,4 @@ body{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+*/

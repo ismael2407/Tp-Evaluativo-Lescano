@@ -138,7 +138,7 @@ export class CrudService {
 
 
       //asignarle a la respuesta la informacion de las imagenes subidas
-      this.respuesta = await uploadString(referenciaImagen, nombre, 'data_url')
+      this.respuesta = await uploadString(referenciaImagen, imagen, 'data_url')
 
         .then(resp => {
           return resp;
