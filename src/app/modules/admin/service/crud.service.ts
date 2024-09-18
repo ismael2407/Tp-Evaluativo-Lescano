@@ -29,12 +29,11 @@ export class CrudService {
 
 
   //Definir variable "respuesta" que podra subir resultados
-  private respuesta!: UploadResult
+  private respuesta!: UploadResult;
 
   //Inicializar servicio "Storage"
-  private storage = getStorage()
-
-
+  private storage = getStorage();
+  
 
 
   constructor(private baseDatos: AngularFirestore) {

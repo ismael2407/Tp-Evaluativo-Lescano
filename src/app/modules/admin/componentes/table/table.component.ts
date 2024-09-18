@@ -169,7 +169,7 @@ export class TableComponent {
         Swal.fire({
           title: "¡Oh no!",
           text: "¡Ha ocurrido un error al eliminar el producto:\n!" + error,
-          icon: "success"
+          icon: "error"
         })
 
 
@@ -195,7 +195,7 @@ export class TableComponent {
       modelo: productoSeleccionado.modelo,
       marca: productoSeleccionado.marca,
       material: productoSeleccionado.material,
-      //imagen: productoSeleccionado.imagen,
+
       alt: productoSeleccionado.alt
 
     })
@@ -237,7 +237,8 @@ export class TableComponent {
         })
     } else {
       /**
-       * Actualizamos el formulario con los datos recibidos del usuario, pero sin modificar la imagen ya existente en Firestore y Stor
+       * Actualizamos el formulario con los datos recibidos del usuario,
+       *  pero sin modificar la imagen ya existente en Firestore y Store
        */
       this.actualizarProducto(datos)
     }
