@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { GafasComponent } from './pages/gafas/gafas.component';
 import { LentesDeSolComponent } from './pages/lentes-de-sol/lentes-de-sol.component';
 import { ProductoComponent } from './pages/producto/producto.component';
+import { LentesContactoComponent } from './pages/lentes-contacto/lentes-contacto.component';
 const routes: Routes = [
 
 {
@@ -14,6 +15,9 @@ const routes: Routes = [
 },
 {
   path:"productos",component:ProductoComponent
+},
+{
+  path:"lentesdecontacto",component:LentesContactoComponent
 }
 
 ];

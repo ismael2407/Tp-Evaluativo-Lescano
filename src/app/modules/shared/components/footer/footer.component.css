@@ -1,8 +1,24 @@
-.container{
+/*.container{
     background-color: #133b44;
     height: 10%;
     bottom: 0px;
     display: block;
     justify-content: center;
+}*/
+
+footer{
+    height: 15%;
+
+}
+
+p{
+    background-color: #067c8b;
+    color: white;
+    text-align: center;
+    display: table-cell;
+}
+img{
+    width: 2%;
+    height: 2%;
 }
 

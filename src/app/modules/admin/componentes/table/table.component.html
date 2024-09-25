@@ -11,7 +11,9 @@
             <th scope="col">Modelo</th>
             <th scope="col">Marca</th>
             <th scope="col">Material</th>
+            <th scope="col">descuento</th>
             <th scope="col">Acciones</th>
+          
 
         </tr>
     </thead>
@@ -29,6 +31,7 @@
             <td>{{prod.modelo}}</td>
             <td>{{prod.marca}}</td>
             <td>{{prod.material}}</td>
+            <td>{{prod.descuento}}</td>
 
 
 
@@ -90,6 +93,12 @@
                         <option value="ofertas">Ofertas</option>
                     </select>
                 </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Ingrese el descuento del producto</label>
+                    <input class="form-control" type="text" formControlName="descuento" placeholder="Ej.:10">
+                </div>
+
                 <div class="mb-3">
                     <label class="form-label">Ingrese el modelo del producto</label>
                     <input class="form-control" type="text" formControlName="modelo" placeholder="Ej.:SK10">
@@ -173,6 +182,12 @@
                         <option value="ofertas">Ofertas</option>
                     </select>
                 </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Ingrese el descuento del producto</label>
+                    <input class="form-control" type="text" formControlName="descuento" placeholder="Ej.:10">
+                </div>
+
                 <div class="mb-3">
                     <label class="form-label">Ingrese el modelo del producto</label>
                     <input class="form-control" type="text" formControlName="modelo" placeholder="{{productoEdit.modelo}}">

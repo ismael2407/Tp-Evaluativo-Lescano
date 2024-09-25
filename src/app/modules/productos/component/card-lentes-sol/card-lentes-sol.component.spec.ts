@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CardLentesSolComponent } from './card-lentes-sol.component';
+import { CardLentesSolComponent } from '../card-lentes-contacto/card-lentes-sol.componentd-lentes-sol.component';
 
 describe('CardLentesSolComponent', () => {
   let component: CardLentesSolComponent;

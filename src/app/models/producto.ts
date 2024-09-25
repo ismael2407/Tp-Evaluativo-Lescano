@@ -10,5 +10,6 @@ export interface Producto {
     alt:string
     precio:number
     descripcion:string,
-    categoria:string
+    categoria:string,
+    descuento:number,
 }

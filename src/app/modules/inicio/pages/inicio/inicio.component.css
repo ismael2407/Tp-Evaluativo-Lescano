@@ -147,4 +147,8 @@
         width: 680px;
         height: 410px
     }
+
+    h5{
+        font-size: larger;
+    }
 }

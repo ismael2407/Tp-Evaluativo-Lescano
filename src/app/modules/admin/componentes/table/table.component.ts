@@ -35,6 +35,7 @@ export class TableComponent {
     modelo: new FormControl('', Validators.required),
     marca: new FormControl('', Validators.required),
     material: new FormControl('', Validators.required),
+    descuento: new FormControl(0),
     //imagen: new FormControl('', Validators.required),
     alt: new FormControl('', Validators.required),
 
@@ -56,6 +57,7 @@ export class TableComponent {
         precio: this.producto.value.precio!,
         descripcion: this.producto.value.descripcion!,
         categoria: this.producto.value.categoria!,
+        descuento: this.producto.value.descuento!,
         modelo: this.producto.value.modelo!,
         marca: this.producto.value.marca!,
         material: this.producto.value.material!,
@@ -195,7 +197,7 @@ export class TableComponent {
       modelo: productoSeleccionado.modelo,
       marca: productoSeleccionado.marca,
       material: productoSeleccionado.material,
-
+      descuento: productoSeleccionado.descuento,
       alt: productoSeleccionado.alt
 
     })
@@ -211,6 +213,7 @@ export class TableComponent {
       precio: this.producto.value.precio!,
       descripcion: this.producto.value.descripcion!,
       categoria: this.producto.value.categoria!,
+      descuento:this.producto.value.descuento!,
       modelo: this.producto.value.modelo!,
       marca: this.producto.value.marca!,
       material: this.producto.value.material!,

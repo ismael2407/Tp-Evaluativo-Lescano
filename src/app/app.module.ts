@@ -14,12 +14,14 @@ import {enviroment} from 'src/environments/environments'; //Vincula la BD con la
 import{AngularFireModule} from '@angular/fire/compat' //Trabaja con las colecciones de informacion
 import{AngularFireAuthModule} from '@angular/fire/compat/auth' //Trabaja con la autentificacion
 import{AngularFireStorageModule} from'@angular/fire/compat/storage';
+import { CardLentesContactoComponent } from './modules/productos/component/card-lentes-contacto/card-lentes-contacto.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+  
 
 
 
