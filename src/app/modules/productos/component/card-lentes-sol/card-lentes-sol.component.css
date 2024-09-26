@@ -1,13 +1,42 @@
-body {
-    background-color: #dceced;
+@media(min-width: 300px) and (max-width:700px) {
+
+
+
+    #imgCard {
+        max-width: 300px;
+        max-height: 200px;
+    }
+
+
+    .card {
+        width: fit-content;
+        height: fit-content;
+        margin-bottom: 50px;
+    }
+
+    #imagenModal {
+        width: 300px;
+        height: 200px;
+    }
 
 }
 
 
-.zoom {
-    transition: transform 1s;
-}
 
-.zoom:hover {
-    transform: scale(1.1);
+
+@media(min-width:700px) {
+
+    #imgCard {
+        max-width: 250px;
+        max-height: 250px;
+    }
+
+
+    .zoom {
+        transition: transform 1s;
+    }
+
+    .zoom:hover {
+        transform: scale(1.1);
+    }
 }

@@ -8,6 +8,10 @@ import { CrudService } from 'src/app/modules/admin/service/crud.service';
 })
 export class CardGafasComponent {
 
+
+  carrito: { producto: Producto, cantidad: number }[] = []; // Carrito de compras  
+
+
 //coleccion de todos los productos de forma local
   coleccionProductos: Producto[] = []
   //coleccion de productos de una sola categoria
@@ -53,4 +57,18 @@ export class CardGafasComponent {
     this.modalVisible=true
     this.productoSeleccionado=info
   }
+
+  agregarAlCarrito(producto: Producto) {  
+    const index = this.carrito.findIndex(item => item.producto.idProducto === producto.idProducto);  
+    if (index === -1) {  
+      this.carrito.push({ producto, cantidad: 1 });  
+    } else {  
+      this.carrito[index].cantidad++;  
+    }  
+  }  
+
+
+  
+
+
 }

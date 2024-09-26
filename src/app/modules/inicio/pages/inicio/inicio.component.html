@@ -14,6 +14,10 @@
 
 
         <!--Cards-->
+
+        <!--
+        
+        
         <div class="container text-center justify-content-center" id="contenedorCardsOfertas">
             <div class="row g-2">
                 <div class="col-3" *ngFor="let producto of coleccionOfertas" id="contenedor">
@@ -28,7 +32,7 @@
                                     $<s>{{producto.precio}}</s>
                                 </p>
                                 <p>
-                                    ${{variabletemporal}}
+                                    ${{producto.variabletemporal}}
                                 </p>
                                 <a href="#" class="btn btn-primary">Ver más</a>
                             </div>
@@ -37,6 +41,39 @@
                 </div>
             </div>
         </div>
+        -->
+
+
+
+        <div class="container text-center justify-content-center" id="contenedorCardsOfertas">
+            <div class="row g-2">
+                <div class="col-3" *ngFor="let producto of coleccionOfertas" id="contenedor">
+                    <div class="p-3" id="temp">
+                        <div class="card zoom" id="card">
+                            <img src="{{producto.imagen}}" id="imagenCardsOfertas" class="card-img-top"
+                                alt="{{producto.alt}}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{producto.nombre}} {{producto.marca}}</h5>
+
+                                <!-- Mostrar el precio original tachado -->
+                                <p class="card-text">
+                                    $<s>{{producto.precio}}</s>
+                                </p>
+
+                                <!-- Mostrar el precio con descuento (variabletemporal) -->
+                                <p class="card-text">
+                                    ${{producto.variabletemporal}}
+                                </p>
+
+                                <a href="#" class="btn btn-primary">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
     <div class="info">
