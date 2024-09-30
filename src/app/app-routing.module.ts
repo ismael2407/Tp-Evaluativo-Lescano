@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './modules/inicio/pages/inicio/inicio.component';
 import { GafasComponent } from './modules/productos/pages/gafas/gafas.component';
 import { LentesDeSolComponent } from './modules/productos/pages/lentes-de-sol/lentes-de-sol.component';
+import { CarritoComponent } from './modules/carrito/carrito/carrito.component';
 
 const routes: Routes = [
 
@@ -14,6 +15,9 @@ const routes: Routes = [
 },
 {
   path:"",component:LentesDeSolComponent
+},
+{
+  path:"",component:CarritoComponent
 },
 
 {
@@ -29,7 +33,10 @@ const routes: Routes = [
 },
 {
   path:"",loadChildren:()=>import('./modules/admin/admin.module').then(m=>m.AdminModule)
-}
+},
+{
+  path:"",loadChildren:()=>import('./modules/carrito/carrito.module').then(m=>m.CarritoModule)
+},
 
 ];
 

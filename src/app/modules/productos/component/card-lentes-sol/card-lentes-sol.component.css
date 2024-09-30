@@ -39,4 +39,12 @@
     .zoom:hover {
         transform: scale(1.1);
     }
+
+
+    
+    #imagenModal{
+
+        max-width:450px;
+ 
+     }
 }

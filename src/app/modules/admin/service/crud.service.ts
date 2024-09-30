@@ -3,6 +3,7 @@ import { Producto } from 'src/app/models/producto';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { map } from 'rxjs';
+import Swal from 'sweetalert2';
 //Importaciones para manejo de archivos y referencias
 import { getDownloadURL, getStorage, ref, UploadResult, uploadString, deleteObject } from 'firebase/storage'
 /**
@@ -28,6 +29,8 @@ export class CrudService {
 
 
 
+  private CarritoCollection:AngularFirestoreCollection<Producto>
+
   //Definir variable "respuesta" que podra subir resultados
   private respuesta!: UploadResult;
 
@@ -38,7 +41,70 @@ export class CrudService {
 
   constructor(private baseDatos: AngularFirestore) {
     this.productosCollection = baseDatos.collection('producto')
+    this.CarritoCollection=baseDatos.collection('producto')
   }
+
+
+coleccionCarrito:any[]=[]
+
+cantidadItemCarrito:number=0
+
+totalCarrito:number=0
+
+
+//Carrito
+
+calcularTotal(){
+  this.totalCarrito=0//Reinicia el total antes de calcular
+  this.coleccionCarrito.forEach((element)=>{
+    element.subTotal=element.precio*element.cantidadItemCarrito
+    this.totalCarrito+=element.subTotal
+  })
+  this.totalCarrito=+this.totalCarrito.toFixed(2)//Redondear a dos decimales
+}
+
+
+//funcion para agregar o actualizar la cantidad de un producto
+
+AgregarAlCarrito(item: any) { 
+  const index = this.coleccionCarrito.findIndex(
+    (element) => element.nombre === item.nombre
+  );
+
+  if (index !== -1) {
+    // Si el producto ya existe en el carrito, actualiza la cantidad directamente
+    this.coleccionCarrito[index].cantidad = item.cantidad;
+    if (this.coleccionCarrito[index].cantidad <= 0) {
+      this.eliminarItem(this.coleccionCarrito[index]); // Eliminar si la cantidad es 0 o menos
+    }
+  } else {
+    // Si el producto no existe, agregar al carrito
+    const nuevoElemento = {
+      ...item,
+      cantidad: item.cantidad > 0 ? item.cantidad : 1, // Asegurar que al menos tenga una cantidad positiva
+    };
+    this.coleccionCarrito.push(nuevoElemento);
+  }
+
+  this.cantidadItemCarrito = this.coleccionCarrito.length;
+  this.calcularTotal();
+
+  Swal.fire({
+    title: "Buen Trabajo!",
+    text: "se pudo agregar el producto al carrito!",
+    icon: "success"
+  });   
+}
+
+// Función para eliminar un producto del carrito
+eliminarItem(item: any) {
+  const index = this.coleccionCarrito.indexOf(item);
+  if (index !== -1) {
+    this.coleccionCarrito.splice(index, 1); // Eliminar el producto del array
+  }
+  this.cantidadItemCarrito = this.coleccionCarrito.length; // Actualizar la cantidad de items en el carrito
+  this.calcularTotal(); // Recalcular el total después de eliminar
+}
 
 
   //CREAR nuevos porductos

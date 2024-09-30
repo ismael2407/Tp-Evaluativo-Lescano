@@ -58,15 +58,7 @@ export class CardGafasComponent {
     this.productoSeleccionado=info
   }
 
-  agregarAlCarrito(producto: Producto) {  
-    const index = this.carrito.findIndex(item => item.producto.idProducto === producto.idProducto);  
-    if (index === -1) {  
-      this.carrito.push({ producto, cantidad: 1 });  
-    } else {  
-      this.carrito[index].cantidad++;  
-    }  
-  }  
-
+ 
 
   
 

@@ -152,4 +152,11 @@
     h5{
         font-size: larger;
     }
+
+
+    #imagenModal{
+
+        max-width:450px;
+ 
+     }
 }
