@@ -12,5 +12,5 @@ export interface Producto {
     descripcion:string,
     categoria:string,
     descuento:number,
-    variabletemporal?:number
+    precioFinal?:number
 }

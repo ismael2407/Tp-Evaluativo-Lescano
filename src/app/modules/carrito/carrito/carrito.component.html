@@ -1,7 +1,7 @@
 <div class="Carrito-resumen">
     <h1><strong>Carrito de compras</strong></h1>
 
-    <mat-table [dataSource]="crudservice.coleccionCarrito" class="mat-elevation-z8">
+    <mat-table [dataSource]="crudService.coleccionCarrito" class="mat-elevation-z8">
 
         <ng-container matColumnDef="nombre">
             <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
@@ -17,7 +17,7 @@
 
         <ng-container matColumnDef="preciounitario">
             <mat-header-cell *matHeaderCellDef>preciounitario</mat-header-cell>
-            <mat-cell *matCellDef="let item"> Ud ${{ (item.precio).toFixed(2)}}</mat-cell>
+            <mat-cell *matCellDef="let item"> Ars ${{ (item.precio).toFixed(2)}}</mat-cell>
         </ng-container>
 
 
@@ -40,7 +40,7 @@
 
     </mat-table>
 
-    <h1 id="total"> <strong>Total: ${{crudservice.totalCarrito}}</strong></h1>
+    <h1 id="total"> <strong>Total: ${{crudService.totalCarrito}}</strong></h1>
 
     <button id="ed1" type="button" class="btn" (click)="realizarCompra()"> <b>Continuar compra</b></button>
 </div>

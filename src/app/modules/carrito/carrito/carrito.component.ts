@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CrudService } from '../../admin/service/crud.service';
-
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-carrito',
@@ -13,25 +12,24 @@ export class CarritoComponent {
 
 
 
-constructor(public crudservice : CrudService){} 
+constructor(public crudService : CrudService){} 
 
   displayedColumns:string[]=['nombre','cantidad','preciounitario','eliminar']
 
   actualizarSubtotal(item:any){
-    this.crudservice.AgregarAlCarrito(item)
+    this.crudService.AgregarAlCarrito(item)
     
   }
   
   eliminarItem(item:any){
-    this.crudservice.eliminarItem(item);
-    this.crudservice.coleccionCarrito =[...this.crudservice.coleccionCarrito]
+    this.crudService.eliminarItem(item);
+    this.crudService.coleccionCarrito =[...this.crudService.coleccionCarrito]
   }
 
 
 
 
 
-//personalizacion de alerta proximamente modal para pagar los productos
   realizarCompra(){
     Swal.fire({
       title: "Buen trabajo!",
@@ -40,4 +38,7 @@ constructor(public crudservice : CrudService){}
     }); 
   }
 
+
+
+  
 }

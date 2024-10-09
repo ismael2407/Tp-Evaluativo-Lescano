@@ -45,56 +45,52 @@ export class CrudService {
   }
 
 
-coleccionCarrito:any[]=[]
-
-cantidadItemCarrito:number=0
-
-totalCarrito:number=0
-
-
-//Carrito
-
-calcularTotal(){
-  this.totalCarrito=0//Reinicia el total antes de calcular
-  this.coleccionCarrito.forEach((element)=>{
-    element.subTotal=element.precio*element.cantidadItemCarrito
-    this.totalCarrito+=element.subTotal
-  })
-  this.totalCarrito=+this.totalCarrito.toFixed(2)//Redondear a dos decimales
-}
-
-
-//funcion para agregar o actualizar la cantidad de un producto
-
-AgregarAlCarrito(item: any) { 
-  const index = this.coleccionCarrito.findIndex(
-    (element) => element.nombre === item.nombre
-  );
-
-  if (index !== -1) {
-    // Si el producto ya existe en el carrito, actualiza la cantidad directamente
-    this.coleccionCarrito[index].cantidad = item.cantidad;
-    if (this.coleccionCarrito[index].cantidad <= 0) {
-      this.eliminarItem(this.coleccionCarrito[index]); // Eliminar si la cantidad es 0 o menos
-    }
-  } else {
-    // Si el producto no existe, agregar al carrito
-    const nuevoElemento = {
-      ...item,
-      cantidad: item.cantidad > 0 ? item.cantidad : 1, // Asegurar que al menos tenga una cantidad positiva
-    };
-    this.coleccionCarrito.push(nuevoElemento);
+  coleccionCarrito: any[] = []; // Considera usar una interfaz para mejor tipado  
+  cantidadItemCarrito: number = 0;  
+  totalCarrito: number = 0;  
+  
+  // Carrito  
+  calcularTotal() {  
+    this.totalCarrito = 0; // Reinicia el total antes de calcular  
+    this.coleccionCarrito.forEach((element) => {  
+      element.subTotal = element.precio * element.cantidad; // Cambiado a cantidad  
+      this.totalCarrito += element.subTotal;  
+    });  
+    this.totalCarrito = parseFloat(this.totalCarrito.toFixed(2));  
+  }  
+  
+  // Función para agregar o actualizar la cantidad de un producto  
+  AgregarAlCarrito(item: any) {   
+    const index = this.coleccionCarrito.findIndex(  
+      (element) => element.nombre === item.nombre  
+    );  
+  
+    if (index !== -1) {  
+      // Si el producto ya existe en el carrito, actualiza la cantidad directamente  
+      this.coleccionCarrito[index].cantidad = item.cantidad;  
+      if (this.coleccionCarrito[index].cantidad <= 0) {  
+        this.eliminarItem(this.coleccionCarrito[index]); // Eliminar si la cantidad es 0 o menos  
+      }  
+    } else {  
+      // Si el producto no existe, agregar al carrito  
+      const nuevoElemento = {  
+        ...item,  
+        cantidad: item.cantidad > 0 ? item.cantidad : 1, // Asegurar que al menos tenga una cantidad positiva  
+      };  
+      this.coleccionCarrito.push(nuevoElemento);  
+    }  
+  
+    this.cantidadItemCarrito = this.coleccionCarrito.length; // Asegúrate de que esto esté actualizado correctamente  
+    this.calcularTotal();  
+  
+    Swal.fire({  
+      title: "¡Buen Trabajo!",  
+      text: "¡Se pudo agregar el producto al carrito!",  
+      icon: "success"  
+    });   
+  
+    console.log(this.totalCarrito);  
   }
-
-  this.cantidadItemCarrito = this.coleccionCarrito.length;
-  this.calcularTotal();
-
-  Swal.fire({
-    title: "Buen Trabajo!",
-    text: "se pudo agregar el producto al carrito!",
-    icon: "success"
-  });   
-}
 
 // Función para eliminar un producto del carrito
 eliminarItem(item: any) {

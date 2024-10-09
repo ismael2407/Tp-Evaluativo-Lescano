@@ -32,7 +32,7 @@ export class InicioComponent {
 
   productoPrecioOferta: number = 0
 
-  variabletemporal: number = 0
+  precioFinal: number = 0
 
   //inicializa al momento que renderiza el conponente
   ngOnInit(): void {
@@ -48,49 +48,23 @@ export class InicioComponent {
 
 
   }
-  /**
-   * 
-   * 
-   * 
-   * 
-  mostrarProductoOfertas() {
-    this.coleccionProductos.forEach(producto => {
-      if (producto.categoria === "ofertas") {
-        this.productoPrecioOferta = (producto.precio * producto.descuento) / 100
-        this.variabletemporal = producto.precio - this.productoPrecioOferta
-  
-        this.coleccionOfertas.push(producto)
-  
-  
-        this.coleccionPreciosOfertas.push(this.variabletemporal)
-  
-        console.log(this.variabletemporal)
-  
-  
-      }
-    })
-  
-  }
-   */
+ 
   mostrarProductoOfertas() {
     this.coleccionProductos.forEach(producto => {
       if (producto.categoria === "ofertas") {
         // Calcular el precio con descuento
         this.productoPrecioOferta = (producto.precio * producto.descuento) / 100;
-        this.variabletemporal = producto.precio - this.productoPrecioOferta;
+        this.precioFinal = producto.precio - this.productoPrecioOferta;
 
 
         const productoConDescuento: Producto = {
           ...producto,    //Se utiliza el spread operator (...producto) para copiar todas las propiedades del objeto producto.
-          variabletemporal: this.variabletemporal   //Luego, se agrega o actualiza la propiedad variabletemporal en la nueva copia con el mismo valor de this.variabletemporal.
+          precioFinal: this.precioFinal   //Luego, se agrega o actualiza la propiedad variabletemporal en la nueva copia con el mismo valor de this.variabletemporal.
         
         };
-
+ 
         // Agregar el producto con descuento a la colección de ofertas
         this.coleccionOfertas.push(productoConDescuento);
-
-        // Depurar: mostrar el valor del precio con descuento
-        console.log(this.variabletemporal);
       }
     });
   }
