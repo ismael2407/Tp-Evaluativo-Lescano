@@ -62,6 +62,8 @@ export class IniciosesionComponent {
 
 
 
+
+
     try {
       //obtenemos usuario de la BD
       const usuarioBD = await this.servicioAuth.obtenerUsuario(credenciales.email)
@@ -69,8 +71,8 @@ export class IniciosesionComponent {
       //Condicional verifica que enla base de datos el usuario existiera o que sea igual al de nuestra coleccion
       if (!usuarioBD || usuarioBD.empty) {
         Swal.fire({
-          text:"Correo electronico no registrado",
-          icon:"error"
+          text: "Correo electronico no registrado",
+          icon: "error"
         });
         this.limpiarInputs()
         return;
@@ -109,7 +111,22 @@ export class IniciosesionComponent {
           text: "¡Se ingreso correctamente!",
           icon: "success"
         });
-        this.servicioRutas.navigate(['/inicio'])
+
+
+        this.servicioAuth.setUserRol(usuarioData.rol)
+
+        if (usuarioData.rol === "admin") {
+          console.log("Inicio de administrador")
+
+          //Si es administrador, redirecciona a la vista "admin"
+          this.servicioRutas.navigate(['/admin'])
+        } else {
+          console.log("Inicio de visitante")
+
+          //Si es otro tipo de usuario, redirecciona al "inicio"
+          this.servicioRutas.navigate(['/inicio'])
+        }
+
       })
         .catch(err => {
           Swal.fire({

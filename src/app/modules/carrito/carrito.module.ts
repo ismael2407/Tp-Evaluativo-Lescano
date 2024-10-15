@@ -19,6 +19,11 @@ import { FormsModule } from '@angular/forms';
     MatTableModule,
     MatIconModule,
     FormsModule,
+  ],
+  exports:[
+    MatTableModule,
+    MatIconModule,
+    FormsModule,
   ]
 })
 export class CarritoModule { }

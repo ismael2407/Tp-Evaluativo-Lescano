@@ -28,6 +28,7 @@
     .menuOfertas {
         text-align: center;
         background-color: #dceced;
+        justify-content: center;
     }
 
     .zoom {
@@ -68,9 +69,15 @@
 
 
     #imagenModal{
-        width: 300px;
-        height: 200px;
+        max-width: 200px;
+        max-height: 200px;
      }
+
+
+    .modal{
+        width: fit-content;
+        height: fit-content;
+    }
 
 }
 

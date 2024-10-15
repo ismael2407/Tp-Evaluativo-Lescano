@@ -3,10 +3,19 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FirestoreService } from '../../shared/service/firestore.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
+
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  private rolUsuario: string | null = null
+
+
+
+
   //Referenciar Auth de FireBase al servicio
 
   constructor(
@@ -28,6 +37,11 @@ export class AuthService {
   CerrarSesion() {
     //Devuelve una promesa vacia -> quita token
     return this.auth.signOut()
+
+
+
+
+
   }
 
 
@@ -54,5 +68,32 @@ export class AuthService {
      * Lo vuelve una promesa => da un resultado RESUELTO o RECHAZADO
      */
     return this.servicioFirestore.collection('usuarios', ref => ref.where('email', '==', email)).get().toPromise()
+  }
+
+
+
+
+  //FUNCION OBTENER ROL
+  obtenerRol(uid: string): Observable<string | null> {
+    /**
+     * Accedemos a la coleccion de ususarios, buscanmdo por UID, obteniendo cambios en valores
+     * Al enviar info, por tuberia, "mapeamos" la coleccion, obtenemos un usuario especifico
+     * y buscamos su atributto "rol", aun si este es "nulo"
+     */
+    return this.servicioFirestore.collection("usuarios").doc(uid).valueChanges().pipe(map((usuario: any) => usuario ? usuario.rol : null))
+  }
+
+  //Enviar el rol obtenido -> asignarlo al rol de la variable local
+  setUserRol(rol: string) {
+
+    this.rolUsuario = rol
+
+
+  }
+  //obtener el rol y retornar
+  getUserRol():string|null {
+
+return this.rolUsuario
+
   }
 }
