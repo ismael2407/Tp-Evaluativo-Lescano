@@ -3,6 +3,7 @@
 
     body{
         background-color: #dceced;
+        height: 650px;
     }
     
     .row{
@@ -14,6 +15,8 @@
         width: 120px;
     }
 
+
+   
 }
 
 @media(min-width:700px) {
