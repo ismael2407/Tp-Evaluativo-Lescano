@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 
 //COMPONENTES LOCALES Y GLOBALES
-import { NavbarComponent } from '../navbar/navbar.component';
-import { FooterComponent } from '../footer/footer.component';
+import { NavbarComponent } from '../components/navbar/navbar.component';
+import { FooterComponent } from '../components/footer/footer.component';
 
 //COMPONENTES DE MATERIAL
 //Navbar
