@@ -1,5 +1,9 @@
 <mat-toolbar>
   <!--Menu desplegable para cuando la pantalla sea menor a 700px-->
+  
+  <img id="imagen1" src="./assets/img/LogoPagina.png" alt="" style="width: 7%; height: 110%;" routerLink="/inicio">
+  <img id="imagen2" src="./assets/img/LogoPaginaTelefonos.png" alt="" style="width: 20%;" routerLink="/inicio">
+
   <button id="menuSecciones" mat-icon-button class="example-icon" [matMenuTriggerFor]="seccion">
     <mat-icon>menu</mat-icon>
   </button>
@@ -9,26 +13,33 @@
 
     <button mat-button [matMenuTriggerFor]="producto">Productos</button>
 
+    <button mat-button routerLink="/acercade">Nosotros</button>
 
     <button mat-button routerLink="/admin">Admin</button>
 
   </mat-menu>
-  <img id="imagen1" src="./assets/img/LogoPagina.png" alt="" style="width: 7%; height: 110%;" routerLink="/inicio">
-  <img id="imagen2" src="./assets/img/LogoPaginaTelefonos.png" alt="" style="width: 20%;" routerLink="/inicio">
 
+  <div id="menuProducto">
 
-  <button mat-button routerLink="/inicio">Inicio</button>
+    <button mat-button routerLink="/inicio">Inicio</button>
 
-  <button id="menuProducto" mat-button [matMenuTriggerFor]="producto">Productos</button>
-  <mat-menu #producto="matMenu">
-    <button mat-menu-item routerLink="/gafas">Gafas</button>
-    <button mat-menu-item routerLink="/lentesdesol">Lentes de sol</button>
-    <button mat-menu-item routerLink="/lentesdecontacto">Lentes de Contacto</button>
-    
-  </mat-menu>
+    <button id="menuProducto" mat-button [matMenuTriggerFor]="producto">Productos</button>
+    <mat-menu #producto="matMenu">
+      <button mat-menu-item routerLink="/gafas">Gafas</button>
+      <button mat-menu-item routerLink="/lentesdesol">Lentes de sol</button>
+      <button mat-menu-item routerLink="/lentesdecontacto">Lentes de Contacto</button>
+  
+  
+    </mat-menu> 
+  
+    <button mat-button routerLink="/acercade">Nosotros</button>
+  
+  
+    <button mat-button routerLink="/admin">Admin</button>
+  
 
-  <button mat-button routerLink="/admin">Admin</button>
-
+  </div>
+  
   <span class="example-spacer"></span>
 
 
@@ -37,11 +48,13 @@
   <mat-menu #usuario="matMenu">
     <button mat-menu-item (click)="inicio()" *ngIf="logueado" routerLink="/registro">Registrarse</button>
     <button mat-menu-item (click)="inicio()" *ngIf="logueado" routerLink="/inicio-sesion">Iniciar Sesion</button>
+
     <button mat-menu-item (click)="cerrarSesion()" *ngIf="deslogueado">Cerrar Sesión</button>
 
   </mat-menu>
 
-  <button mat-icon-button class="example-icon shopping_cart-icon" routerLink="/carrito" aria-label="Example icon-button with heart icon">
+  <button mat-icon-button class="example-icon shopping_cart-icon" routerLink="/carrito"
+    aria-label="Example icon-button with heart icon">
     <mat-icon>shopping_cart</mat-icon>
   </button>
 

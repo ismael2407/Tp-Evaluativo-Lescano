@@ -2,11 +2,20 @@
 
 #imgProd {  
     max-width: 50px;
-    height: 50px;  
+    height: 50px; 
 }  
 
+#tablePcs{
+    display: none;
+}
 
+#tableMobile{
+    background-color: white;
+}
 
+.tituloTabla{
+    padding-left: 10px;
+}
 }
 
 @media(min-width:700px) {
@@ -15,6 +24,17 @@
     #imgProd{
         max-width: 200px;
         max-height: 200px;
+    }
+
+    #tableMobile{
+        display: none;
+    }
+
+    #tablePcs{
+        background-color: white;
+    }
+    .tituloTabla{
+        padding-left: 10px;
     }
 }
 

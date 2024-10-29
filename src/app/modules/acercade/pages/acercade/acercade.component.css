@@ -1,0 +1,33 @@
+
+video {
+    border: 5px solid black;
+    height: fit-content;
+    width: 730px;
+
+}
+
+
+h1 {
+    font-family: "Cormorant Infant", serif;
+    font-size: xx-large;
+}
+
+iframe {
+    width: 680px;
+    height: 410px
+}
+
+h5 {
+    font-size: larger;
+}
+
+#AcercaDe {
+    background-color: #9db5bd;
+
+}
+
+#Ubicacion {
+    background-color: #1e5e6c;
+    width: fit-content;
+    justify-content: center;
+}

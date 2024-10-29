@@ -11,7 +11,7 @@
 
     #card {
         width: 8rem;
-        height: 15rem;
+        height: fit-content;
         font-size: xx-small;
 
 
@@ -22,9 +22,10 @@
         margin-right: 90px;
     }
 
-    #hrSuperior{
+    #hrSuperior {
         margin-top: 0;
     }
+
     .menuOfertas {
         text-align: center;
         background-color: #dceced;
@@ -68,15 +69,16 @@
     }
 
 
-    #imagenModal{
+    #imagenModal {
         max-width: 200px;
         max-height: 200px;
-     }
+    }
 
 
-    .modal{
+    .modal {
         width: fit-content;
         height: fit-content;
+        margin-left: 60px;
     }
 
 }
@@ -122,16 +124,7 @@
     }
 
 
-    #AcercaDe {
-        background-color: #9db5bd;
-
-    }
-
-    #Ubicacion {
-        background-color: #1e5e6c;
-        width: fit-content;
-        justify-content: center;
-    }
+ 
 
 
     #contenedorCardsOfertas {
@@ -148,7 +141,7 @@
         border: 5px solid black;
         height: fit-content;
         width: 730px;
-    
+
     }
 
 
@@ -162,14 +155,28 @@
         height: 410px
     }
 
-    h5{
+    h5 {
         font-size: larger;
     }
 
 
-    #imagenModal{
+    #imagenModal {
 
-        max-width:450px;
- 
-     }
+        max-width: 450px;
+
+    }
+
+
+    .modal {
+        text-align: center;
+    }
+
+    .modal-header {
+        display: flex;
+        justify-content: center;
+    }
+
+    texto-modal{
+        font-size: 20px;
+    }
 }
