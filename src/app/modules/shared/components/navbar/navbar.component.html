@@ -1,23 +1,30 @@
 <mat-toolbar>
   <!--Menu desplegable para cuando la pantalla sea menor a 700px-->
-  
+
   <img id="imagen1" src="./assets/img/LogoPagina.png" alt="" style="width: 7%; height: 110%;" routerLink="/inicio">
   <img id="imagen2" src="./assets/img/LogoPaginaTelefonos.png" alt="" style="width: 20%;" routerLink="/inicio">
 
-  <button id="menuSecciones" mat-icon-button class="example-icon" [matMenuTriggerFor]="seccion">
-    <mat-icon>menu</mat-icon>
-  </button>
 
-  <mat-menu #seccion="matMenu">
-    <button mat-button routerLink="/inicio">Inicio</button>
 
-    <button mat-button [matMenuTriggerFor]="producto">Productos</button>
 
-    <button mat-button routerLink="/acercade">Nosotros</button>
+<!--
+  
+<button id="menuSecciones" mat-icon-button class="example-icon" [matMenuTriggerFor]="seccion">
+  <mat-icon>menu</mat-icon>
+</button>
 
-    <button mat-button routerLink="/admin">Admin</button>
+<mat-menu #seccion="matMenu">
+</mat-menu>
 
-  </mat-menu>
+-->
+
+<div id="menuSecciones">
+
+  <button mat-button routerLink="/inicio">Inicio</button>
+  <button mat-button [matMenuTriggerFor]="producto">Productos</button>
+  <button mat-button routerLink="/acercade">Nosotros</button>
+</div>
+
 
   <div id="menuProducto">
 
@@ -28,17 +35,19 @@
       <button mat-menu-item routerLink="/gafas">Gafas</button>
       <button mat-menu-item routerLink="/lentesdesol">Lentes de sol</button>
       <button mat-menu-item routerLink="/lentesdecontacto">Lentes de Contacto</button>
-  
-  
-    </mat-menu> 
-  
+
+
+    </mat-menu>
+
     <button mat-button routerLink="/acercade">Nosotros</button>
-  
-  
+
+
     <button mat-button routerLink="/admin">Admin</button>
-  
+
 
   </div>
+
+
   
   <span class="example-spacer"></span>
 

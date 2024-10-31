@@ -24,7 +24,13 @@
     display: grid;
   }
 
+#botones{
+  display: grid;
+}
 
+#menuSecciones{
+  font-size:15px;
+}
 }
 
 @media(min-width:700px) {
