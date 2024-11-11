@@ -1,93 +1,96 @@
-    <table id="tablePcs">  
-        <thead>  
-            <tr>  
-                <th scope="col">#</th>  
-                <th scope="col" class="tituloTabla">Imagen</th>  
-                <th scope="col" class="tituloTabla">Nombre</th>  
-                <th scope="col" class="tituloTabla">Precio</th>  
-                <th scope="col" class="tituloTabla">Descripcion</th>  
-                <th scope="col" class="tituloTabla">Categoria</th>  
-                <th scope="col" class="tituloTabla">Modelo</th>  
-                <th scope="col" class="tituloTabla">Marca</th>  
-                <th scope="col" class="tituloTabla">Material</th>  
-                <th scope="col" class="tituloTabla">Descuento</th>  
-                <th scope="col" class="tituloTabla">Acciones</th>  
-            </tr>  
-        </thead>  
-        <tbody>  
-            <tr *ngFor="let prod of coleccionProductos; let i = index">  
-                <th scope="row">{{i + 1}}                   
-                </th>  
-                <td>  
-                    <img src="{{prod.imagen}}" alt="{{prod.alt}}" id="imgProd">  
-                </td>  
-                <td>{{prod.nombre}}</td>  
-                <td>{{prod.precio}}</td>  
-                <td>{{prod.descripcion}}</td>  
-                <td>{{prod.categoria}}</td>  
-                <td>{{prod.modelo}}</td>  
-                <td>{{prod.marca}}</td>  
-                <td>{{prod.material}}</td>  
-                <td>{{prod.descuento}}</td>  
-                <td>  
-                    <button id="btn-edit" title="Editar" type="button" class="btn btn-outline-warning"  
-                        data-bs-toggle="modal" data-bs-target="#editarProducto" (click)="mostrarEditar(prod)">  
-                        <mat-icon>edit</mat-icon>  
-                    </button>  
-                </td>  
-                <td>  
-                    <button id="btn-delete" title="Eliminar" type="button" class="btn btn-outline-danger"  
-                        data-bs-toggle="modal" data-bs-target="#eliminarProducto" (click)="mostrarborrarProducto(prod)">  
-                        <mat-icon>delete</mat-icon>  
-                    </button>  
-                </td>  
-            </tr>  
-        </tbody>  
-    </table>  
+<table id="tablePcs">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col" class="tituloTabla">Imagen</th>
+            <th scope="col" class="tituloTabla">Nombre</th>
+            <th scope="col" class="tituloTabla">Precio</th>
+            <th scope="col" class="tituloTabla">Descripcion</th>
+            <th scope="col" class="tituloTabla">Categoria</th>
+            <th scope="col" class="tituloTabla">Modelo</th>
+            <th scope="col" class="tituloTabla">Marca</th>
+            <th scope="col" class="tituloTabla">Material</th>
+            <th scope="col" class="tituloTabla">Descuento</th>
+            <th scope="col" class="tituloTabla">Stock</th>
+            <th scope="col" class="tituloTabla">Acciones</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let prod of coleccionProductos; let i = index">
+            <th scope="row">{{i + 1}}
+            </th>
+            <td>
+                <img src="{{prod.imagen}}" alt="{{prod.alt}}" id="imgProd">
+            </td>
+            <td>{{prod.nombre}}</td>
+            <td>{{prod.precio}}</td>
+            <td>{{prod.descripcion}}</td>
+            <td>{{prod.categoria}}</td>
+            <td>{{prod.modelo}}</td>
+            <td>{{prod.marca}}</td>
+            <td>{{prod.material}}</td>
+            <td>{{prod.descuento}}</td>
+            <td>{{prod.stock}}</td>
+            <td>
+                <button id="btn-edit" title="Editar" type="button" class="btn btn-outline-warning"
+                    data-bs-toggle="modal" data-bs-target="#editarProducto" (click)="mostrarEditar(prod)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </td>
+            <td>
+                <button id="btn-delete" title="Eliminar" type="button" class="btn btn-outline-danger"
+                    data-bs-toggle="modal" data-bs-target="#eliminarProducto" (click)="mostrarborrarProducto(prod)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 
 
 <table id="tableMobile">
-    <thead>  
-        <tr>  
-            <th scope="col">#</th>  
-            <th scope="col" class="tituloTabla">Imagen</th>  
-            <th scope="col" class="tituloTabla">Nombre</th>  
-            <th scope="col" class="tituloTabla">Precio</th>  
-            <th scope="col" class="tituloTabla">Categoria</th>  
-            <th scope="col" class="tituloTabla">Acciones</th> 
- 
-        </tr>  
-    </thead>  
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col" class="tituloTabla">Imagen</th>
+            <th scope="col" class="tituloTabla">Nombre</th>
+            <th scope="col" class="tituloTabla">Precio</th>
+            <th scope="col" class="tituloTabla">Categoria</th>
+            <th scope="col" class="tituloTabla">Acciones</th>
 
-    <tbody>  
-        <tr *ngFor="let prod of coleccionProductos; let i = index">  
-            <th scope="row">{{i + 1}}                   
-            </th>  
-            <td>  
-                <img src="{{prod.imagen}}" alt="{{prod.alt}}" id="imgProd">  
-            </td>  
-            <td>{{prod.nombre}}</td>  
-            <td>{{prod.precio}}</td>  
-            <td>{{prod.categoria}}</td>  
+        </tr>
+    </thead>
 
-            <td>  
-                <button id="btn-edit" title="Editar" type="button" class="btn btn-outline-warning"  
-                    data-bs-toggle="modal" data-bs-target="#editarProducto" (click)="mostrarEditar(prod)">  
-                    <mat-icon>edit</mat-icon>  
-                </button>  
-            </td>  
-            <td>  
-                <button id="btn-delete" title="Eliminar" type="button" class="btn btn-outline-danger"  
-                    data-bs-toggle="modal" data-bs-target="#eliminarProducto" (click)="mostrarborrarProducto(prod)">  
-                    <mat-icon>delete</mat-icon>  
-                </button>  
-            </td>  
-        </tr>  
-    </tbody>  
+    <tbody>
+        <tr *ngFor="let prod of coleccionProductos; let i = index">
+            <th scope="row">{{i + 1}}
+            </th>
+            <td>
+                <img src="{{prod.imagen}}" alt="{{prod.alt}}" id="imgProd">
+            </td>
+            <td>{{prod.nombre}}</td>
+            <td>{{prod.precio}}</td>
+            <td>{{prod.categoria}}</td>
+
+            <td>
+                <button id="btn-edit" title="Editar" type="button" class="btn btn-outline-warning"
+                    data-bs-toggle="modal" data-bs-target="#editarProducto" (click)="mostrarEditar(prod)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </td>
+            <td>
+                <button id="btn-delete" title="Eliminar" type="button" class="btn btn-outline-danger"
+                    data-bs-toggle="modal" data-bs-target="#eliminarProducto" (click)="mostrarborrarProducto(prod)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
-  
+
 <!-- Boton de agregar nuevos productos -->
 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#agregarProducto">
     Agregar un nuevo producto
@@ -164,6 +167,13 @@
                     <label class="form-label">Ingrese el texto alternativo del producto</label>
                     <input class="form-control" type="text" formControlName="alt" placeholder="Ej.:...">
                 </div>
+
+
+                <div class="mb3">
+                    <label class="form-label">Ingrese su Stock</label>
+                    <input type="number" class="form-control" formControlName="stock" placeholder="Ej.: 25">
+                </div>
+
             </div>
 
             <!--Acciones del modal-->
@@ -183,7 +193,8 @@
 
 <!--MODAL PARA EDITAR UN PRODUCTO-->
 
-<div class="modal fade" *ngFor="let productoEdit of coleccionProductos" id="editarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" *ngFor="let productoEdit of coleccionProductos" id="editarProducto" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -195,15 +206,18 @@
             <div [formGroup]="producto" class="modal-body">
                 <div class="mb-3">
                     <label class="form-label">Ingrese el nombre del producto</label>
-                    <input class="form-control" type="text" formControlName="nombre" placeholder="{{productoEdit.nombre}}">
+                    <input class="form-control" type="text" formControlName="nombre"
+                        placeholder="{{productoEdit.nombre}}">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Ingrese el precio del producto</label>
-                    <input class="form-control" type="number" formControlName="precio" placeholder="{{productoEdit.precio}}">
+                    <input class="form-control" type="number" formControlName="precio"
+                        placeholder="{{productoEdit.precio}}">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Ingrese la descripcion del producto</label>
-                    <input class="form-control" type="text" formControlName="descripcion" placeholder="{{productoEdit.descripcion}}">
+                    <input class="form-control" type="text" formControlName="descripcion"
+                        placeholder="{{productoEdit.descripcion}}">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Seleccionar una categoria</label>
@@ -223,20 +237,23 @@
 
                 <div class="mb-3">
                     <label class="form-label">Ingrese el modelo del producto</label>
-                    <input class="form-control" type="text" formControlName="modelo" placeholder="{{productoEdit.modelo}}">
+                    <input class="form-control" type="text" formControlName="modelo"
+                        placeholder="{{productoEdit.modelo}}">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Ingrese el Marca del producto</label>
-                    <input class="form-control" type="text" formControlName="marca" placeholder="{{productoEdit.marca}}">
+                    <input class="form-control" type="text" formControlName="marca"
+                        placeholder="{{productoEdit.marca}}">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Ingrese el material del producto</label>
-                    <input class="form-control" type="text" formControlName="material" placeholder="{{productoEdit.material}}">
+                    <input class="form-control" type="text" formControlName="material"
+                        placeholder="{{productoEdit.material}}">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Ingrese la imagen del producto</label>
 
-                         <!--
+                    <!--
                     type="archivo"
 
                     accept="imagen/*"<- acepte todo tipo de extensiones (jpg, jpeg, png, gif)
@@ -251,6 +268,13 @@
                 <div class="mb-3">
                     <label class="form-label">Ingrese el texto alternativo del producto</label>
                     <input class="form-control" type="text" formControlName="alt" placeholder="{{productoEdit.imagen}}">
+                </div>
+
+
+                <div class="mb3">
+                    <label class="form-label">Ingrese su Stock</label>
+                    <input type="number" class="form-control" formControlName="stock"
+                        placeholder="{{productoEdit.stock}}">
                 </div>
             </div>
 

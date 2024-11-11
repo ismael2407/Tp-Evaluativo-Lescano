@@ -1,26 +1,57 @@
 <!--Card para mostrar todos los productos que el ADMIN ingrese a la base de datos-->
 
-    <div class="row g-2">
-        <div class="contenido col-3" *ngFor=" let producto of coleccionGafas">
-            <div class="p-4 zoom">
+<div class="container">
+    <div class="row justify-content-center g-4">
+        <!-- Si solo hay una card, la centramos -->
+        <div *ngIf="coleccionGafas.length === 1" class="col-12 d-flex justify-content-center">
+            <div class="card zoom" style="width: 18rem;">
+                <img src="{{coleccionGafas[0].imagen}}" class="card-img-top" alt="{{coleccionGafas[0].alt}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{coleccionGafas[0].nombre}} {{coleccionGafas[0].marca}}</h5>
+                    <p class="card-text">${{coleccionGafas[0].precio}}</p>
+                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                        data-bs-target="#verMas" (click)="mostrarVer(coleccionGafas[0])">Ver más</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Si hay dos cards, las centramos en la fila -->
+        <ng-container *ngIf="coleccionGafas.length === 2">
+            <div class="col-6 d-flex justify-content-center" *ngFor="let producto of coleccionGafas">
                 <div class="card zoom" style="width: 18rem;">
                     <img src="{{producto.imagen}}" class="card-img-top" alt="{{producto.alt}}">
                     <div class="card-body">
                         <h5 class="card-title">{{producto.nombre}} {{producto.marca}}</h5>
-    
-                        <p class="card-text">
-                            ${{producto.precio}}
-                        </p>
-    
+                        <p class="card-text">${{producto.precio}}</p>
                         <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-                            data-bs-target="#verMas" (click)="mostrarVer(producto)">Ver
-                            más</button>
+                            data-bs-target="#verMas" (click)="mostrarVer(producto)">Ver más</button>
                     </div>
                 </div>
             </div>
-        </div>
-    
+        </ng-container>
+
+        <!-- Si hay tres o más cards, se organizan en filas de tres -->
+        <ng-container *ngIf="coleccionGafas.length >= 3">
+            <div class="col-12">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col" *ngFor="let producto of coleccionGafas">
+                        <div class="card zoom" style="width: 18rem;">
+                            <img src="{{producto.imagen}}" class="card-img-top" alt="{{producto.alt}}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{producto.nombre}} {{producto.marca}}</h5>
+                                <p class="card-text">${{producto.precio}}</p>
+                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                    data-bs-target="#verMas" (click)="mostrarVer(producto)">Ver más</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
     </div>
+</div>
+
+
     
 
 

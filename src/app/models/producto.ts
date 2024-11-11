@@ -13,4 +13,6 @@ export interface Producto {
     categoria:string,
     descuento:number,
     precioFinal?:number
+    stock:number,
+    
 }

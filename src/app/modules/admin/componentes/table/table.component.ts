@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
-}) 
+})
 export class TableComponent {
   //creamos coleccion local de productos -> la definimos como array
   coleccionProductos: Producto[] = []
@@ -38,7 +38,7 @@ export class TableComponent {
     descuento: new FormControl(0),
     //imagen: new FormControl('', Validators.required),
     alt: new FormControl('', Validators.required),
-
+    stock: new FormControl(0, Validators.required)
 
   })
   constructor(public servicioCrud: CrudService) {
@@ -62,7 +62,8 @@ export class TableComponent {
         marca: this.producto.value.marca!,
         material: this.producto.value.material!,
         imagen: '',
-        alt: this.producto.value.alt!
+        alt: this.producto.value.alt!,
+        stock:this.producto.value.stock!,
       }
 
       //enviamos nombre y url de la imagen, definimos carpeta de las imagenes como "producto"
@@ -198,7 +199,8 @@ export class TableComponent {
       marca: productoSeleccionado.marca,
       material: productoSeleccionado.material,
       descuento: productoSeleccionado.descuento,
-      alt: productoSeleccionado.alt
+      alt: productoSeleccionado.alt,
+      stock:productoSeleccionado.stock,
 
     })
   }
@@ -213,12 +215,13 @@ export class TableComponent {
       precio: this.producto.value.precio!,
       descripcion: this.producto.value.descripcion!,
       categoria: this.producto.value.categoria!,
-      descuento:this.producto.value.descuento!,
+      descuento: this.producto.value.descuento!,
       modelo: this.producto.value.modelo!,
       marca: this.producto.value.marca!,
       material: this.producto.value.material!,
       imagen: this.productoSeleccionado.imagen,
-      alt: this.producto.value.alt!
+      alt: this.producto.value.alt!,
+      stock:this.producto.value.stock!,
     }
 
     //Verificamos si el usuario ingresa o no una nueva imagen

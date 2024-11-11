@@ -8,10 +8,18 @@
     }
 
 
-    .card {
+    #contennedorCards {
         width: fit-content;
         height: fit-content;
         margin-bottom: 50px;
+    }
+
+
+
+
+
+    .contenido {
+        display: contents;
     }
 
     #imagenModal {
@@ -41,10 +49,10 @@
     }
 
 
-    
-    #imagenModal{
 
-        max-width:450px;
- 
-     }
+    #imagenModal {
+
+        max-width: 450px;
+
+    }
 }

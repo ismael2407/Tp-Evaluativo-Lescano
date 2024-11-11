@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { CrudService } from 'src/app/modules/admin/service/crud.service';
 
@@ -7,73 +7,50 @@ import { CrudService } from 'src/app/modules/admin/service/crud.service';
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css']
 })
-export class InicioComponent {
+export class InicioComponent implements OnInit {
+  
+  coleccionProductos: Producto[] = [];
+  coleccionOfertas: Producto[] = [];
+  chunkedOfertas: Producto[][] = [];
+  productoSeleccionado!: Producto;
+  modalVisible: boolean = false;
 
+  productoPrecioOferta: number = 0;
+  precioFinal: number = 0;
 
-
-
-  //coleccion de todos los productos de forma local
-  coleccionProductos: Producto[] = []
-  //coleccion de productos de una sola categoria
-  coleccionOfertas: Producto[] = []
-
-  coleccionPreciosOfertas: number[] = []
-
-  //variable para seleccionar productos especificos
-  productoSeleccionado!: Producto
-
-  //variable para manejar el estado del modal
-  modalVisible: boolean = false
-
-  //patentamos de forma local el servicio para acceder en el
   constructor(public servicioCrud: CrudService) { }
 
-
-
-  productoPrecioOferta: number = 0
-
-  precioFinal: number = 0
-
-  //inicializa al momento que renderiza el conponente
   ngOnInit(): void {
-
-    //accedemos a metodo "obtenerProducto" y nos subscribimos a los cambios
-    //recibimos notificacion ante modificaciones
     this.servicioCrud.obtenerProducto().subscribe(producto => {
-      this.coleccionProductos = producto
-
-      //mostrara la coleccion de esa categoria hasta el momentos
-      this.mostrarProductoOfertas()
-    })
-
-
-  }
- 
-  mostrarProductoOfertas() {
-    this.coleccionProductos.forEach(producto => {
-      if (producto.categoria === "ofertas") {
-        // Calcular el precio con descuento
-        this.productoPrecioOferta = (producto.precio * producto.descuento) / 100;
-        this.precioFinal = producto.precio - this.productoPrecioOferta;
-
-
-        const productoConDescuento: Producto = {
-          ...producto,    //Se utiliza el spread operator (...producto) para copiar todas las propiedades del objeto producto.
-          precioFinal: this.precioFinal   //Luego, se agrega o actualiza la propiedad variabletemporal en la nueva copia con el mismo valor de this.variabletemporal.
-        
-        };
- 
-        // Agregar el producto con descuento a la colección de ofertas
-        this.coleccionOfertas.push(productoConDescuento);
-      }
+      this.coleccionProductos = producto;
+      this.mostrarProductoOfertas();
     });
   }
 
+  mostrarProductoOfertas() {
+    this.coleccionOfertas = this.coleccionProductos.filter(producto => producto.categoria === "ofertas")
+      .map(producto => {
+        this.productoPrecioOferta = (producto.precio * producto.descuento) / 100;
+        this.precioFinal = producto.precio - this.productoPrecioOferta;
 
-  mostrarVer(info: Producto) {
-    this.modalVisible = true
-    this.productoSeleccionado = info
+        return { ...producto, precioFinal: this.precioFinal };
+      });
+
+    // Agrupar en subconjuntos de 4
+    this.chunkedOfertas = this.chunkArray(this.coleccionOfertas, 4);
   }
 
+  // Función para dividir el array en subconjuntos
+  chunkArray(arr: Producto[], chunkSize: number): Producto[][] {
+    let result = [];
+    for (let i = 0; i < arr.length; i += chunkSize) {
+      result.push(arr.slice(i, i + chunkSize));
+    }
+    return result;
+  }
 
+  mostrarVer(info: Producto) {
+    this.modalVisible = true;
+    this.productoSeleccionado = info;
+  }
 }
