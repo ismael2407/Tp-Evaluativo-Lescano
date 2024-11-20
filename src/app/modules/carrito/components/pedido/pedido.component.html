@@ -1,16 +1,32 @@
 <div class="container">
     <h2>Carrito de compras</h2>
     <div class="row">
-        <div class="col-lg-4">
-            <ul class="list-group">
-                <li class="list-group-item" *ngFor="let pedido of coleccionPedidos">
-                    {{pedido.cantidad}} {{pedido.producto.nombre}} - ${{pedido.total}}
-
-                    
-                    
-                    <button class="btn btn-danger" (click)="quitarPedido(pedido)"><mat-icon>delete</mat-icon></button>
-                </li>
-            </ul>
-        </div>
+      <div class="col-lg-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Cantidad</th>
+              <th>Producto</th>
+              <th>Total</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pedido of coleccionPedidos">
+              <td><img [src]="pedido.producto.imagen" alt="{{pedido.producto.nombre}}" width="50" height="50"></td>
+              <td>{{pedido.cantidad}}</td>
+              <td>{{pedido.producto.nombre}}</td>
+              <td>${{pedido.total}}</td>
+              <td>
+                <button class="btn btn-danger" (click)="quitarPedido(pedido)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-</div>
+  </div>
+  

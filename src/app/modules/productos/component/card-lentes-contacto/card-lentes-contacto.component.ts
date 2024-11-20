@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { CrudService } from 'src/app/modules/admin/service/crud.service';
-import { InicioComponent } from 'src/app/modules/inicio/pages/inicio/inicio.component';
 
 @Component({
   selector: 'app-card-lentes-contacto',
@@ -25,8 +24,7 @@ productoSeleccionado!: Producto
 modalVisible:boolean=false
 
 //patentamos de forma local el servicio para acceder en el
-constructor(public servicioCrud: CrudService,
-  public inicioComponent: InicioComponent
+constructor(public servicioCrud: CrudService
 ) { }
 
 //inicializa al momento que renderiza el conponente
@@ -61,5 +59,8 @@ mostrarVer(info:Producto){
   this.productoSeleccionado=info
 }
 
+ 
+
+stock: number = 0;
 
 }

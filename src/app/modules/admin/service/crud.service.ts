@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { CarritoService } from '../../carrito/services/carrito.service';
+import { Input, Output, EventEmitter } from '@angular/core';
+
 import { map } from 'rxjs';
 import Swal from 'sweetalert2';
 //Importaciones para manejo de archivos y referencias
@@ -39,7 +42,9 @@ export class CrudService {
 
 
 
-  constructor(private baseDatos: AngularFirestore) {
+  constructor(private baseDatos: AngularFirestore,
+    private servicioCarrito:CarritoService
+  ) {
     this.productosCollection = baseDatos.collection('producto')
     this.CarritoCollection = baseDatos.collection('producto')
   }
@@ -167,4 +172,59 @@ export class CrudService {
       return this.respuesta
     }
   }
+
+
+
+
+
+
+  coleccionProductos: Producto[] = [];
+  productoSeleccionado!: Producto;
+
+
+  @Input() productoReciente: string = '';
+  @Output() productoAgregado = new EventEmitter<Producto>();
+
+  stock: number = 0;
+
+
+  modalVisible: boolean = false;
+
+
+
+  ngOnInitCarrito(): void {
+    this.obtenerProducto().subscribe(producto => {
+      this.coleccionProductos = producto;
+    });
+    this.servicioCarrito.iniciarCarrito();
+  }
+
+  mostrarVerCompra(info: Producto) {
+    this.modalVisible = true;
+    this.productoSeleccionado = info;
+    this.compraVisible = true;
+  }
+
+  agregarProducto(info: Producto,stock:number) {
+    this.productoAgregado.emit(info);
+
+    const stockDeseado = Math.trunc(stock);
+
+    if (stockDeseado <= 0 || stockDeseado > info.stock) {
+      Swal.fire({
+        title: 'Error al agregar el producto',
+        text: 'El stock ingresado no es válido, por favor ingresar un valor válido',
+        icon: 'error'
+      });
+    } else {
+      this.servicioCarrito.crearPedido(info, stockDeseado);
+    }
+
+  
+    
+  }
+
+  compraVisible: boolean = false;
+
+
 }

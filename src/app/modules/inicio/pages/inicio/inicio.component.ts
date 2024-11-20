@@ -17,6 +17,7 @@ export class InicioComponent implements OnInit {
   chunkedOfertas: Producto[][] = [];
   productoSeleccionado!: Producto;
   modalVisible: boolean = false;
+  stock: number = 0;
 
   productoPrecioOferta: number = 0;
   precioFinal: number = 0;
@@ -31,6 +32,8 @@ export class InicioComponent implements OnInit {
       this.coleccionProductos = producto;
       this.mostrarProductoOfertas();
     });
+
+    this.servicioCarrito.iniciarCarrito();
   }
 
   mostrarProductoOfertas() {
@@ -63,14 +66,9 @@ export class InicioComponent implements OnInit {
   @Input() productoReciente: string = '';
   @Output() productoAgregado = new EventEmitter<Producto>();
 
-  stock: number = 0;
+ 
 
-  ngOnInitCarrito(): void {
-    this.servicioCrud.obtenerProducto().subscribe(producto => {
-      this.coleccionProductos = producto;
-    });
-    this.servicioCarrito.iniciarCarrito();
-  }
+
 
   mostrarVerCompra(info: Producto) {
     this.modalVisible = true;
@@ -78,21 +76,7 @@ export class InicioComponent implements OnInit {
     this.compraVisible = true;
   }
 
-  agregarProducto(info: Producto) {
-    this.productoAgregado.emit(info);
-
-    const stockDeseado = Math.trunc(this.stock);
-
-    if (stockDeseado <= 0 || stockDeseado > info.stock) {
-      Swal.fire({
-        title: 'Error al agregar el producto',
-        text: 'El stock ingresado no es válido, por favor ingresar un valor válido',
-        icon: 'error'
-      });
-    } else {
-      this.servicioCarrito.crearPedido(info, stockDeseado);
-    }
-  }
+  
 
   compraVisible: boolean = false;
 }

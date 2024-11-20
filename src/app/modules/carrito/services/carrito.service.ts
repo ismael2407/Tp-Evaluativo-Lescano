@@ -56,8 +56,6 @@ export class CarritoService {
         console.error(" No se obtuvo el UID. Intente iniciar sesion")
 
 
-        this.servicioRutas.navigate(["/inicio-sesion"]);
-
       } else {
         this.pedidosColeccion = this.servicioFirestore.collection(`usuarios/${this.uid}/pedido`)
       }

@@ -58,26 +58,34 @@
 <div class="modal fade" *ngIf="modalVisible" id="verMas" tabindex="-1" aria-labelledby="exampleModalLabel"
 aria-hidden="true">
 <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">{{productoSeleccionado.nombre}}</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <img src="{{productoSeleccionado.imagen}}" id="imagenModal"  alt="{{productoSeleccionado.alt}}">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="exampleModalLabel">{{productoSeleccionado.nombre}}</h1>
 
-            <div class="mb-3">
-                {{productoSeleccionado.descripcion}}
-            </div>
-            <div class="mb-3">
-                {{productoSeleccionado.precio}}
-            </div>
+    </div>
+    <div class="modal-body">
+      <img id="imagenModal" src="{{productoSeleccionado.imagen}}" alt="{{productoSeleccionado.alt}}">
 
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-primary" (click)="inicioComponent.agregarProducto(productoSeleccionado)"  data-bs-dismiss="modal">Agregar al carrito</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        </div>
-    </div> 
+      <div class="mb-3">
+        {{productoSeleccionado.descripcion}}
+      </div>
+      <div class="mb-3">
+        <p><s>${{productoSeleccionado.precio}}</s></p>
+        <p>${{productoSeleccionado.precioFinal}}</p>
+        
+      </div>
+      <div class="mb-3">
+        Stock Disponible: {{productoSeleccionado.stock}}
+      </div>
+
+    </div>
+    <div class="modal-footer">
+
+      <input type="number" placeholder="Cantidad deseada del producto" [(ngModel)]="stock">
+      <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+      (click)="servicioCrud.agregarProducto(productoSeleccionado,stock)">Agregar</button>
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+    </div>
+  </div>
 </div>
 </div>

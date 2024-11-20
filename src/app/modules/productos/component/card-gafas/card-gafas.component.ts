@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { CrudService } from 'src/app/modules/admin/service/crud.service';
-import { InicioComponent } from 'src/app/modules/inicio/pages/inicio/inicio.component';
+
 
 
 @Component({
@@ -12,9 +12,9 @@ import { InicioComponent } from 'src/app/modules/inicio/pages/inicio/inicio.comp
 export class CardGafasComponent {
 
 
-  carrito: { producto: Producto, cantidad: number }[] = []; // Carrito de compras  
+  // carrito: { producto: Producto, cantidad: number }[] = []; // Carrito de compras  
 
-
+  stock: number = 0;
 //coleccion de todos los productos de forma local
   coleccionProductos: Producto[] = []
   //coleccion de productos de una sola categoria
@@ -27,8 +27,7 @@ export class CardGafasComponent {
   modalVisible:boolean=false
 
   //patentamos de forma local el servicio para acceder en el
-  constructor(public servicioCrud: CrudService,
-    public inicioComponent: InicioComponent
+  constructor(public servicioCrud: CrudService
   ) { }
 
   //inicializa al momento que renderiza el conponente
@@ -64,6 +63,7 @@ export class CardGafasComponent {
   }
 
  
+  
 
   
 
