@@ -1,6 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { CrudService } from 'src/app/modules/admin/service/crud.service';
+import { CarritoService } from 'src/app/modules/carrito/services/carrito.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -29,21 +31,22 @@ export class CardComponent {
 
 
 
+  stock:number=0
+ 
 
+  constructor(
+    public servicioCrud: CrudService,
+    public servicioCarrito:CarritoService
+  ) {
+  }
 
   ngOnInit(): void {
     this.servicioCrud.obtenerProducto().subscribe(producto => {
       this.coleccionProductos = producto
     })
+    
+    this.servicioCarrito.iniciarCarrito()
   }
-
-
-  constructor(public servicioCrud: CrudService) {
-    this.servicioCrud.obtenerProducto().subscribe(producto => {
-      this.coleccionProductos = producto
-    })
-  }
-
 
 
   //Funcion para mostrar mas informacion de los productos
@@ -67,6 +70,19 @@ export class CardComponent {
 
     this.productoAgregado.emit(info)
 
+
+
+    const stockDeseado= Math.trunc(this.stock)
+
+    if (stockDeseado<=0|| stockDeseado> info.stock) {
+      Swal.fire({
+        title:'Error al agregar el producto',
+        text:'El stock ingresado no es valido, por favor ingresar un valor valido',
+        icon:'error'
+      })
+    } else {
+      this.servicioCarrito.crearPedido(info,stockDeseado)
+    }
   }
 
 

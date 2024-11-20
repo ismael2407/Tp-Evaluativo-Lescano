@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CarritoComponent } from './carrito/carrito.component';
+import { PedidoComponent } from './components/pedido/pedido.component';
 const routes: Routes = [
 
 
 {
-  path:"carrito",component:CarritoComponent
+  path:"carrito",component:PedidoComponent
 }
 
 

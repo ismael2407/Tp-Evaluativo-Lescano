@@ -22,7 +22,7 @@ export class RegistroComponent {
     nombre: '',
     apellido: '',
     email: '',
-    rol: "usuarios", //Todos los usuarios al registrarse seran visitantes
+    rol: "usuario", //Todos los usuarios al registrarse seran visitantes
     password: "",
   }
 
@@ -108,7 +108,7 @@ export class RegistroComponent {
       nombre: this.usuarios.nombre = '',
       apellido: this.usuarios.apellido = '',
       email: this.usuarios.email = '',
-      rol: this.usuarios.rol = 'visitante ',
+      rol: this.usuarios.rol = 'usuario',
       password: this.usuarios.password = ''
     }
   }

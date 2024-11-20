@@ -44,7 +44,7 @@ export class CarritoService {
   ) {
 
     //creamos la subcoleccion dentro de la coleccion de usuarios y le damos ese valor a pedidosColeccion
-    this.pedidosColeccion = servicioFirestore.collection(`usuario/${this.uid}/pedido`);
+    this.pedidosColeccion = servicioFirestore.collection(`usuarios/${this.uid}/pedido`);
   }
 
 
@@ -96,7 +96,7 @@ export class CarritoService {
 
   borrarPedido(pedido:Pedido){
     try {
-      this.pedidosColeccion.doc(pedido.idPedido).delete
+      this.pedidosColeccion.doc(pedido.idPedido).delete()
 
 
 

@@ -7,11 +7,11 @@ import { LentesDeSolComponent } from './pages/lentes-de-sol/lentes-de-sol.compon
 
 import { CardComponent } from './component/card/card.component';
 import { CardGafasComponent } from './component/card-gafas/card-gafas.component';
-import { ProductoComponent } from './pages/producto/producto.component';
 
 import { CardLentesContactoComponent } from './component/card-lentes-contacto/card-lentes-contacto.component';
 import { LentesContactoComponent } from './pages/lentes-contacto/lentes-contacto.component';
 import { CardLentesSolComponent } from './component/card-lentes-sol/card-lentes-sol.component';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { from } from 'rxjs';
 
 
@@ -21,7 +21,6 @@ import { from } from 'rxjs';
     LentesDeSolComponent,
     CardComponent,
     CardGafasComponent,
-    ProductoComponent,
     CardLentesSolComponent,
     CardLentesContactoComponent,
     LentesContactoComponent
@@ -29,6 +28,8 @@ import { from } from 'rxjs';
   imports: [
     CommonModule,
     ProductosRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
 
   ],
   exports:[
@@ -37,7 +38,8 @@ import { from } from 'rxjs';
     CardGafasComponent,
     GafasComponent,
     LentesDeSolComponent,
-    ProductoComponent
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class ProductosModule { }

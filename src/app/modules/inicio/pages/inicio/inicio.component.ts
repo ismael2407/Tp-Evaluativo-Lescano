@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/models/producto';
 import { CrudService } from 'src/app/modules/admin/service/crud.service';
+import { CarritoService } from 'src/app/modules/carrito/services/carrito.service';
+import { Input, Output, EventEmitter } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-inicio',
@@ -18,7 +21,10 @@ export class InicioComponent implements OnInit {
   productoPrecioOferta: number = 0;
   precioFinal: number = 0;
 
-  constructor(public servicioCrud: CrudService) { }
+  constructor(
+    public servicioCrud: CrudService,
+    public servicioCarrito: CarritoService
+  ) { }
 
   ngOnInit(): void {
     this.servicioCrud.obtenerProducto().subscribe(producto => {
@@ -53,4 +59,40 @@ export class InicioComponent implements OnInit {
     this.modalVisible = true;
     this.productoSeleccionado = info;
   }
+
+  @Input() productoReciente: string = '';
+  @Output() productoAgregado = new EventEmitter<Producto>();
+
+  stock: number = 0;
+
+  ngOnInitCarrito(): void {
+    this.servicioCrud.obtenerProducto().subscribe(producto => {
+      this.coleccionProductos = producto;
+    });
+    this.servicioCarrito.iniciarCarrito();
+  }
+
+  mostrarVerCompra(info: Producto) {
+    this.modalVisible = true;
+    this.productoSeleccionado = info;
+    this.compraVisible = true;
+  }
+
+  agregarProducto(info: Producto) {
+    this.productoAgregado.emit(info);
+
+    const stockDeseado = Math.trunc(this.stock);
+
+    if (stockDeseado <= 0 || stockDeseado > info.stock) {
+      Swal.fire({
+        title: 'Error al agregar el producto',
+        text: 'El stock ingresado no es válido, por favor ingresar un valor válido',
+        icon: 'error'
+      });
+    } else {
+      this.servicioCarrito.crearPedido(info, stockDeseado);
+    }
+  }
+
+  compraVisible: boolean = false;
 }

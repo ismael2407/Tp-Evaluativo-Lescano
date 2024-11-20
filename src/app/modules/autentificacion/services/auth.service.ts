@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 //Servicio en la nube de autentificacion de FireBase
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { FirestoreService } from '../../shared/service/firestore.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 
